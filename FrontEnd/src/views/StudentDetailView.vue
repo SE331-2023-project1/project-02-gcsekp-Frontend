@@ -74,7 +74,7 @@ setTimeout(() => {
   <!-- Flash Message -->
 
   <div v-if="flashMessage.isVisible" class="mt-4">
-    <div class="bg-orange-200 text-orange-800 p-2 rounded">
+    <div class="bg-yellow-400 text-red-500 p-2 rounded">
       {{ flashMessage.text }}
     </div>
   </div>
