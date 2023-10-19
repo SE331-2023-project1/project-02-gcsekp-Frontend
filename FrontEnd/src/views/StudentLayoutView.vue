@@ -40,16 +40,16 @@ AdvisorService.getAdvisorById(Number(props.id)).then((response) => {
 </script>
 
 <template>
-    <div class="text-center">
+    <div class="text-center  bg-emerald-100 ">
       <div v-if="student">
         <h1 class="text-2xl font-mono font-semibold mt-5 mb-5">{{ `${student.FirstName} ${student.LastName}` }}</h1>
         <img class="mb-5 mx-auto w-20 h-20" :src="student.stu_pic" alt="img">
         <hr class="mb-5">
         <div id="nav">
-            <RouterLink class="w-1/2 mr-3 text-blue-100 font-mono font-semibold py-2 rounded text-center " 
+            <RouterLink class="w-1/2 mr-3 text-purple-700 font-mono font-semibold py-2 rounded text-center " 
             :to="{ name: 'student-detail', params: { id } }">Details</RouterLink>
             <span class="text-gray-350">|</span>
-            <RouterLink class="w-1/2 ml-3 text-blue-100 font-mono font-semibold py-2 rounded text-center"
+            <RouterLink class="w-1/2 ml-3 text-purple-700 font-mono font-semibold py-2 rounded text-center"
             :to="{ name: 'student-advisor', params: { id, advisorId: student.advisor } }">Advisor</RouterLink>
         </div>
     </div>

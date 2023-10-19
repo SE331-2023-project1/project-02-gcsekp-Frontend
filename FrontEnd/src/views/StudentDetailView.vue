@@ -38,7 +38,7 @@ setTimeout(() => {
 </script>
 
 <template>
-  <div class="text-center">
+  <div class="text-center ">
     <div v-if="student">
       <p>
         <span class="font-mono font-semibold">First Name :</span> {{ student.FirstName }}
