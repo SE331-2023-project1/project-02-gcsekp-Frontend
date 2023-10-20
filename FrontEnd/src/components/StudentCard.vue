@@ -7,15 +7,15 @@
                   shadow-lg
                   mt-5 mb-5 w-250px
                   bg-white pd-10 py-8
-                  text-red-950 
+                  text-amber-500
                   text-base
                   font-mono
-                  hover:bg-blue-50 
+                  hover:bg-amber-200
                   cursor-pointer
                   flex flex-col justify-center items-center" >
           <span class="font-bold text-xl"> {{ `${student.FirstName.toUpperCase()} ${student.LastName.toUpperCase()}` }}</span>
-          <hr class="font-bold w-20 mt-4 border-blue-950">
-          <img class="mt-5 w-20 h-20" :src = "student.stu_pic" alt="img">
+          <hr class="font-bold w-20 mt-4 border-orange-700">
+          <img class="mt-5 w-30 h-30" :src = "student.stu_pic" alt="img">
       </div>
     </div>
   </RouterLink>

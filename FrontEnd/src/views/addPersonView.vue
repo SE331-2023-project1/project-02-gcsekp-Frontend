@@ -1,9 +1,9 @@
 <template>
   <div
-    class="flex flex-col p-3 w-3/4 h-4/5 border border-gray-700 rounded-lg mb-4 bg-white shadow-md my-5 mx-auto"
+    class="flex flex-col p-3 w-3/4 h-4/5 border border-orange-700 rounded-lg mb-4 bg-white shadow-md my-5 mx-auto"
   >
     <div class="font-fig mx-5 text-black">
-      <h1 class="flex justify-center font-bold text-2xl mb-3 text-sky-600">Add Person</h1>
+      <h1 class="flex justify-center font-bold text-2xl mb-3 text-gray-900">Add Person</h1>
       <div class="flex mb-3">
         <label class="my-auto" for="personType">Select Person Type:</label>
         <select
@@ -117,7 +117,7 @@
         
           <div class="flex justify-center mb-2">
             <button
-              class="bg-sky-500 hover:bg-sky-700 shadow-md px-2 py-1 rounded-lg font-bold text-white"
+              class="bg-red-600 hover:bg-sky-300 shadow-md px-2 py-1 rounded-lg font-bold text-white"
               type="submit">
               Add Student
             </button>
@@ -172,7 +172,7 @@
 
           <div class="flex justify-center mb-2">
             <button
-              class="bg-sky-500 hover:bg-sky-700 shadow-md px-2 py-1 rounded-lg font-bold text-white"
+              class="bbg-red-600 hover:bg-sky-300 shadow-md px-2 py-1 rounded-lg font-bold text-white"
               type="submit"
             >
               Add Teacher

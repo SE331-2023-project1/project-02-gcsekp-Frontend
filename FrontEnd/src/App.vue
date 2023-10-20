@@ -10,13 +10,13 @@ import { RouterLink, RouterView } from "vue-router"
     <nav class="mt-6">
       <ul class="flex border-b">
   <li class=" m-2">
-    <div class="bg-white border-white rounded-lg py-2 px-4 text-blue-500 hover:text-blue-800 font-mono font-semibold" >
+    <div class="bg-white border-white rounded-lg py-2 px-4 text-amber-500 hover:text-amber-200 font-mono font-semibold" >
       <RouterLink to="/">Student</RouterLink>
     </div>
   </li>
 
   <li class="m-2">
-    <div class="bg-white border-white rounded-lg py-2 px-4 text-blue-500 hover:text-blue-800 font-mono font-semibold ">
+    <div class="bg-white border-white rounded-lg py-2 px-4 text-amber-500 hover:text-amber-200 font-mono font-semibold ">
       <RouterLink to="/advisor">Advisor</RouterLink>
     </div>
   </li>
