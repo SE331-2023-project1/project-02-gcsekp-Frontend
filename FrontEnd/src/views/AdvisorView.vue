@@ -2,8 +2,8 @@
 import AdvisorCard from '@/components/AdvisorCard.vue'
 import AdvisorService from '@/services/AdvisorService'
 import type { AdvisorDetail } from '@/type'
-import { ref, computed } from 'vue'
 import type { Ref } from 'vue'
+import { computed, ref } from 'vue'
 
 const advisors: Ref<Array<AdvisorDetail>> = ref([])
 const itemsPerPage = 3
@@ -37,31 +37,41 @@ const displayedadvisors = computed(() => {
 </script>
 
 <template>
-  <div class="advisor">
-    <div class="grid gap-10 grid-cols-3 grid-row-3">
-      <AdvisorCard
-        v-for="advisor in displayedadvisors"
-        :key="advisor.id"
-        :advisor="advisor"
-      ></AdvisorCard>
-      <div class="pagination">
-        <button
-          v-if="currentPage > 1"
-          @click="prevPage"
-          class="ml-px mb-5 px-3 py-2 bg-red-600 font-bold text-white rounded-md hover:bg-sky-300 transition-colors duration-200 ease-in-out"
-        >
-          ◀ Back
-        </button>
-        <button
-          v-if="currentPage < Math.ceil(advisors.length / itemsPerPage)"
-          @click="nextPage"
-          :class="[
-            'mb-5 px-3 py-2 bg-red-600 font-bold text-white rounded-md hover:bg-sky-300 transition-colors duration-200 ease-in-out',
-            currentPage > 1 ? 'ml-5' : ''
-          ]"
-        >
-          Next ▶
-        </button>
+  <div
+    class="mt-5 mb-10 flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 bg-gray-800 rounded-lg"
+  >
+    <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+      <h2 class="mt-3 text-center text-2xl font-bold leading-9 tracking-tight text-white">
+        Advisors
+      </h2>
+    </div>
+
+    <div class="advisor">
+      <div class="grid gap-10 grid-cols-3 grid-row-3">
+        <AdvisorCard
+          v-for="advisor in displayedadvisors"
+          :key="advisor.id"
+          :advisor="advisor"
+        ></AdvisorCard>
+        <div class="pagination">
+          <button
+            v-if="currentPage > 1"
+            @click="prevPage"
+            class="ml-px mb-5 px-3 py-2 bg-teal-700 font-bold text-white rounded-md hover:bg-teal-600 transition-colors duration-200 ease-in-out"
+          >
+            ◀ Back
+          </button>
+          <button
+            v-if="currentPage < Math.ceil(advisors.length / itemsPerPage)"
+            @click="nextPage"
+            :class="[
+              'mb-5 px-3 py-2 bg-teal-700 font-bold text-white rounded-md hover:bg-teal-600 transition-colors duration-200 ease-in-out',
+              currentPage > 1 ? 'ml-5' : ''
+            ]"
+          >
+            Next ▶
+          </button>
+        </div>
       </div>
     </div>
   </div>
