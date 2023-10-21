@@ -117,8 +117,7 @@
               class="bg-red-600 hover:bg-sky-300 shadow-md px-2 py-1 rounded-lg font-bold text-white"
               type="submit"
             >
-              class="bg-sky-500 hover:bg-sky-700 shadow-md px-2 py-1 rounded-lg font-bold
-              text-white" type="submit" >
+              Add Student
             </button>
           </div>
         </form>
@@ -184,13 +183,13 @@
 </template>
 
 <script setup lang="ts">
-import { useMessageStore } from '@/stores/message'
+import { ref } from 'vue'
 import { useStudentStore } from '@/stores/student'
 import { useTeacherStore } from '@/stores/teacher'
-import type { AdvisorDetail, StudentDetail } from '@/type'
-import { storeToRefs } from 'pinia'
-import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useMessageStore } from '@/stores/message'
+import { storeToRefs } from 'pinia'
+import type { StudentDetail, AdvisorDetail } from '@/type'
 
 const selectedPersonType = ref('student')
 const studentName = ref('')
