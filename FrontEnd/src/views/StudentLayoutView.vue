@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import type { Ref } from 'vue'
-import type { StudentDetail, AdvisorDetail } from '@/type'
-import { ref, type PropType } from 'vue'
-import { useRouter } from 'vue-router'
-import StudentService from '@/services/StudentService'
 import AdvisorService from '@/services/AdvisorService'
+import StudentService from '@/services/StudentService'
+import type { AdvisorDetail, StudentDetail } from '@/type'
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 const student = ref<StudentDetail | null>(null)
 const advisor = ref<AdvisorDetail | null>(null)
@@ -43,7 +42,7 @@ AdvisorService.getAdvisorById(Number(props.id))
 </script>
 
 <template>
-  <div class="text-center bg-emerald-100">
+  <div class="text-center bg-gray-800">
     <div v-if="student">
       <h1 class="text-2xl font-mono font-semibold mt-5 mb-5">
         {{ `${student.FirstName} ${student.LastName}` }}
@@ -65,12 +64,13 @@ AdvisorService.getAdvisorById(Number(props.id))
       </div>
     </div>
     <RouterView class="mt-3 mb-6" :student="student"></RouterView>
-    <div class="mt-10">
+    <!-- <div class="mt-10">
       <RouterLink
-        class="ml-px px-3 py-2 bg-sky-800 font-bold text-white rounded-md hover:bg-sky-300 transition-colors duration-200 ease-in-out"
+        class="ml-px px-3 py-2 bg-white font-bold text-teal-600 rounded-md hover: transition-colors duration-200 ease-in-out"
         to="/"
-        >◀ Back to Students</RouterLink
       >
-    </div>
+        ◀ Back to Students</RouterLink
+      >
+    </div> -->
   </div>
 </template>
