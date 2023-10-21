@@ -34,7 +34,7 @@ setTimeout(() => {
 </script>
 
 <template>
-  <div class="text-center bg-gray-800 pd-10 py-8 text-teal-600 text-base font-mono">
+  <div class="text-center pd-10 py-8 text-teal-600 text-base font-mono">
     <div v-if="student">
       <p><span class="font-mono font-semibold">First Name :</span> {{ student.FirstName }}</p>
       <p><span class="font-mono font-semibold">Last Name :</span> {{ student.LastName }}</p>
@@ -68,7 +68,7 @@ setTimeout(() => {
       </button>
     </div>
   </div>
-  <div></div>
+  
   <!-- Flash Message -->
 
   <div v-if="flashMessage.isVisible" class="mt-4">
