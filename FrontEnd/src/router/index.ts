@@ -1,16 +1,16 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import StudentView from '../views/StudentView.vue'
-import AdvisorView from '../views/AdvisorView.vue'
-import addPersonView from '../views/addPersonView.vue'
+import { useStudentStore } from '@/stores/student'
+import { useTeacherStore } from '@/stores/teacher'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
-import StudentLayoutView from '../views/StudentLayoutView.vue'
-import StudentDetailView from '../views/StudentDetailView.vue'
+import { createRouter, createWebHistory } from 'vue-router'
+import AdvisorView from '../views/AdvisorView.vue'
+import Login from '../views/Login.vue'
+import Register from '../views/Register.vue'
 import StudentAdvisorView from '../views/StudentAdvisorView.vue'
-
-import { useTeacherStore } from '@/stores/teacher'
-import { useStudentStore } from '@/stores/student'
-
+import StudentDetailView from '../views/StudentDetailView.vue'
+import StudentLayoutView from '../views/StudentLayoutView.vue'
+import StudentView from '../views/StudentView.vue'
+import addPersonView from '../views/addPersonView.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -41,6 +41,16 @@ const router = createRouter({
           name: 'student-advisor',
           component: StudentAdvisorView,
           props: true
+        },
+        {
+          path: '/Login',
+          name: 'Login',
+          component: Login
+        },
+        {
+          path: '/Register',
+          name: 'Register',
+          component: Register
         },
         {
           path: '/addPerson',

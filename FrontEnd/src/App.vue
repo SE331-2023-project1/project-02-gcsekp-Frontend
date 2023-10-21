@@ -3,13 +3,13 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <div class="flex flex-col items-center justify-start">
+  <div class="flex flex-col items-center justify-start bg-gray-800 w-full">
     <header>
       <nav class="mt-6">
         <ul class="flex border-b">
           <li class="m-2">
             <div
-              class="bg-white border-white rounded-lg py-2 px-4 text-amber-500 hover:text-amber-200 font-mono font-semibold"
+              class="rounded-lg py-2 px-4 text-teal-600 hover:text-white font-mono font-semibold text-lg font-bold"
             >
               <RouterLink to="/">Student</RouterLink>
             </div>
@@ -17,17 +17,24 @@ import { RouterLink, RouterView } from 'vue-router'
 
           <li class="m-2">
             <div
-              class="bg-white border-white rounded-lg py-2 px-4 text-amber-500 hover:text-amber-200 font-mono font-semibold"
+              class="rounded-lg py-2 px-4 text-teal-600 hover:text-white font-mono font-semibold text-lg font-bold"
             >
               <RouterLink to="/advisor">Advisor</RouterLink>
             </div>
           </li>
+          <li class="m-2">
+            <div
+              class="rounded-lg py-2 px-4 text-teal-600 hover:text-white font-mono font-semibold text-lg font-bold"
+            >
+              <RouterLink to="/addPerson"> ADD People </RouterLink>
+            </div>
+          </li>
 
-          <li class="mt-3">
-            <div class="w-8 h-8">
-              <RouterLink to="/addPerson"
-                ><img src="./assets/add-friend.png" alt="addButton"
-              /></RouterLink>
+          <li class="m-2">
+            <div
+              class="rounded-lg py-2 px-4 text-teal-600 hover:text-white font-mono font-semibold text-lg font-bold"
+            >
+              <RouterLink to="/Login">Login</RouterLink>
             </div>
           </li>
         </ul>
