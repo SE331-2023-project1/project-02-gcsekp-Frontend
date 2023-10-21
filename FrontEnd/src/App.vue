@@ -30,6 +30,14 @@ import { RouterLink, RouterView } from 'vue-router'
               /></RouterLink>
             </div>
           </li>
+
+          <li class="m-2">
+            <div
+              class="bg-white border-white rounded-lg py-2 px-4 text-amber-500 hover:text-amber-200 font-mono font-semibold"
+            >
+              <RouterLink to="/Login">Login</RouterLink>
+            </div>
+          </li>
         </ul>
       </nav>
 
