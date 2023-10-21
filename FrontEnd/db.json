@@ -170,8 +170,16 @@
       "registered": "History, Economics, Psychology, Biology, Music",
       "advisor": 109,
       "stu_pic": "https://randomuser.me/api/portraits/women/19.jpg"
+    },
+    {
+      "id": 967957,
+      "Student_ID": "542032",
+      "FirstName": "NewSurName",
+      "LastName": "NewSurname",
+      "stu_pic": "https://www.simplilearn.com/image-processing-article",
+      "registered": "Psychology",
+      "advisor": 102
     }
-    
   ],
   "advisor": [
     {
@@ -263,6 +271,12 @@
       "Email": "sarah.adams@university.edu",
       "Office": "Building J, Room 310",
       "advisor_pic": "https://randomuser.me/api/portraits/women/40.jpg"
+    },
+    {
+      "id": 468,
+      "FirstName": "NewAdvisor",
+      "LastName": "advisor",
+      "advisor_pic": "https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg"
     }
   ]
 }
