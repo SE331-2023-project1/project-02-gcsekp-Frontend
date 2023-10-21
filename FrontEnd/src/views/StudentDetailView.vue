@@ -36,7 +36,7 @@ setTimeout(() => {
 </script>
 
 <template>
-  <div class="text-center">
+  <div class="text-center bg-gray-800 pd-10 py-8 text-teal-600 text-base font-mono">
     <div v-if="student">
       <p><span class="font-mono font-semibold">First Name :</span> {{ student.FirstName }}</p>
       <p><span class="font-mono font-semibold">Last Name :</span> {{ student.LastName }}</p>
@@ -49,8 +49,8 @@ setTimeout(() => {
 
   <!-- Add Comment Box ... -->
   <div v-if="detail && detail.length">
-    <h1 class="text-center font-mono font-semibold">Comment :</h1>
-    <p v-for="(details, index) in detail" :key="index">" {{ details }} "</p>
+    <h1 class="text-center font-mono font-semibold text-white">Comments</h1>
+    <p v-for="(details, index) in detail" :key="index" class="text-white">" {{ details }} "</p>
   </div>
   <div class="mt-4">
     <div class="addDetail">
@@ -59,11 +59,12 @@ setTimeout(() => {
         type="text"
         v-model="newDetail"
         placeholder="Type your comment .."
+        
       />
-
+      <span class="ml-5"></span>
       <button
         @click="addDetail"
-        class="mt-2 w-36 text-center ml-px px-3 py-0.5 bg-gray-800 font-bold text-white rounded-md hover:bg-gray-500 transition-colors duration-200 ease-in-out font-mono"
+        class="mt-2 w-36 text-center ml-px px-3 py-0.5 bg-cyan-900 font-bold text-white rounded-md hover:bg-gray-500 transition-colors duration-200 ease-in-out font-mono"
       >
         Add Comment
       </button>

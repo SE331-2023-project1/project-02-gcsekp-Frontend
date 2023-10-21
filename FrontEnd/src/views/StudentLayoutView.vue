@@ -44,22 +44,22 @@ AdvisorService.getAdvisorById(Number(props.id))
 <template>
   <div class="text-center bg-gray-800 rounded-lg">
     <div v-if="student">
-      <h1 class="text-2xl font-mono font-semibold mt-5 mb-5">
+      <h1 class="text-2xl font-mono font-semibold mt-5 mb-5 text-white">
         {{ `${student.FirstName} ${student.LastName}` }}
       </h1>
-      <img class="mb-5 mx-auto w-20 h-20" :src="student.stu_pic" alt="img" />
-      <hr class="mb-5" />
+      <img class="mb-5 mt-5 mx-auto w-30 h-30 rounded-full" :src="student.stu_pic" alt="img" />
+
       <div id="nav">
         <RouterLink
-          class="w-1/2 mr-3 text-purple-700 font-mono font-semibold py-2 rounded text-center"
+          class="w-1/2 mr-3 bg-cyan-900 text-white font-mono font-semibold py-2 rounded text-center"
           :to="{ name: 'student-detail', params: { id } }"
-          >Details</RouterLink
+          >Student's Details</RouterLink
         >
-        <span class="text-gray-350">|</span>
+        <span class="text-white w-2">|</span>
         <RouterLink
-          class="w-1/2 ml-3 text-purple-700 font-mono font-semibold py-2 rounded text-center"
+          class="w-1/2 ml-3 bg-cyan-900 text-white font-mono font-semibold py-2 rounded text-center"
           :to="{ name: 'student-advisor', params: { id, advisorId: student.advisor } }"
-          >Advisor</RouterLink
+          >Student's Advisor</RouterLink
         >
       </div>
     </div>

@@ -42,7 +42,7 @@ const displayedStudents = computed(() => {
   >
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
       <h2 class="mt-3 text-center text-2xl font-bold leading-9 tracking-tight text-white">
-        Add Person
+        Students
       </h2>
     </div>
 
