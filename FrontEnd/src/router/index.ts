@@ -4,13 +4,13 @@ import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import { createRouter, createWebHistory } from 'vue-router'
 import AdvisorView from '../views/AdvisorView.vue'
+import FormView from '../views/Form.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import StudentAdvisorView from '../views/StudentAdvisorView.vue'
 import StudentDetailView from '../views/StudentDetailView.vue'
 import StudentLayoutView from '../views/StudentLayoutView.vue'
 import StudentView from '../views/StudentView.vue'
-import addPersonView from '../views/addPersonView.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -53,17 +53,17 @@ const router = createRouter({
           component: Register
         },
         {
-          path: '/addPerson',
-          name: 'addPerson',
-          component: addPersonView,
+          path: '/From',
+          name: 'Form',
+          component: FormView,
           props: true
         }
       ]
     },
     {
-      path: '/addPerson',
-      name: 'addPerson',
-      component: addPersonView,
+      path: '/Form',
+      name: 'Form',
+      component: FormView,
       props: true
     }
   ]

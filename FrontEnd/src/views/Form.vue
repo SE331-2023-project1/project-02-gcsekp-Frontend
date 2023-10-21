@@ -4,7 +4,7 @@
   >
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
       <h2 class="mt-3 text-center text-2xl font-bold leading-9 tracking-tight text-white">
-        Add Person
+        Add New Person Form
       </h2>
     </div>
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm w-full bg-gray-800 p-3 rounded-lg">
@@ -121,7 +121,7 @@
                 class="mt-3 bg-teal-700 shadow-md px-2 py-1 rounded-lg font-bold hover:bg-teal-600 text-white h-10"
                 type="submit"
               >
-                Add Student
+                Add
               </button>
             </div>
           </form>
@@ -170,12 +170,12 @@
               />
             </div>
 
-            <div class="flex justify-center mb-10">
+            <div class="flex flex-col mb-10">
               <button
                 class="mt-3 bg-teal-700 shadow-md px-2 py-1 rounded-lg font-bold hover:bg-teal-600 text-white h-10"
                 type="submit"
               >
-                Add Teacher
+                Add
               </button>
             </div>
           </form>

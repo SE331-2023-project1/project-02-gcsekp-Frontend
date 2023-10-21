@@ -26,7 +26,7 @@ import { RouterLink, RouterView } from 'vue-router'
             <div
               class="rounded-lg py-2 px-4 text-white hover:text-teal-600 font-mono font-semibold text-lg font-bold"
             >
-              <RouterLink to="/addPerson"> ADD People </RouterLink>
+              <RouterLink to="/Form"> Form </RouterLink>
             </div>
           </li>
 

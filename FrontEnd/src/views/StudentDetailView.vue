@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import type { Ref } from 'vue'
-import type { StudentDetail } from '@/type'
-import { ref, type PropType, computed } from 'vue'
-import StudentService from '@/services/StudentService'
 import { useMessageStore } from '@/stores/message'
+import type { StudentDetail } from '@/type'
+import { computed, ref, type PropType } from 'vue'
 
 const props = defineProps({
   student: {

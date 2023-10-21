@@ -47,32 +47,32 @@ const displayedadvisors = computed(() => {
     </div>
 
     <div class="advisor">
-      <div class="grid gap-10 grid-cols-3 grid-row-3">
+      <div class="mt-10 mb-10 grid gap-10 grid-cols-3 grid-row-3">
         <AdvisorCard
           v-for="advisor in displayedadvisors"
           :key="advisor.id"
           :advisor="advisor"
         ></AdvisorCard>
-        <div class="pagination">
-          <button
-            v-if="currentPage > 1"
-            @click="prevPage"
-            class="ml-px mb-5 px-3 py-2 bg-teal-700 font-bold text-white rounded-md hover:bg-teal-600 transition-colors duration-200 ease-in-out"
-          >
-            ◀ Back
-          </button>
-          <button
-            v-if="currentPage < Math.ceil(advisors.length / itemsPerPage)"
-            @click="nextPage"
-            :class="[
-              'mb-5 px-3 py-2 bg-teal-700 font-bold text-white rounded-md hover:bg-teal-600 transition-colors duration-200 ease-in-out',
-              currentPage > 1 ? 'ml-5' : ''
-            ]"
-          >
-            Next ▶
-          </button>
-        </div>
       </div>
+    </div>
+    <div class="pagination flex justify-between">
+      <button
+        v-if="currentPage > 1"
+        @click="prevPage"
+        class="ml-px mb-5 px-3 py-2 bg-teal-700 font-bold text-white rounded-md hover:bg-teal-600 transition-colors duration-200 ease-in-out"
+      >
+        ◀ Back
+      </button>
+      <button
+        v-if="currentPage < Math.ceil(advisors.length / itemsPerPage)"
+        @click="nextPage"
+        :class="[
+          'mb-5 px-3 py-2 bg-teal-700 font-bold text-white rounded-md hover:bg-teal-600 transition-colors duration-200 ease-in-out ',
+          currentPage > 1 ? 'ml-10' : ''
+        ]"
+      >
+        Next ▶
+      </button>
     </div>
   </div>
 </template>
