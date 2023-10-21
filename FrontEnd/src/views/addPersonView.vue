@@ -10,7 +10,6 @@
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm w-full bg-gray-800 p-3 rounded-lg">
       <!-- <div class="flex flex-col p-3 border rounded-lg mb-4 bg-gray-800 shadow-md my-5 mx-auto w-full"> -->
       <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <h1 class="flex justify-center font-bold text-2xl mb-3 text-white">Add Person</h1>
         <div class="flex flex-col mb-3 mt-10">
           <label class="my-auto" for="personType">Select Person Type:</label>
           <select
