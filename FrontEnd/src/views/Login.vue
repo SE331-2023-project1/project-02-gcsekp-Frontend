@@ -9,10 +9,13 @@
     <!-- username-->
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
       <form class="space-y-6" @submit.prevent="login">
+        <!-- username-->
         <div>
-          <label for="username" class="block text-sm font-medium leading-6 text-white"
-            >Username</label
-          >
+          <div class="flex items-center justify-between">
+            <label for="username" class="block text-sm font-medium leading-6 text-white"
+              >Username</label
+            >
+          </div>
           <div class="mt-2">
             <input
               id="username"
@@ -20,7 +23,7 @@
               type="text"
               autocomplete="username"
               required
-              class="block w-full rounded-md border-0 py-1.5 px-3 text-whiteshadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              class="block w-full rounded-md border-0 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             />
           </div>
         </div>
@@ -48,7 +51,7 @@
         <div>
           <button
             type="submit"
-            class="flex w-full justify-center rounded-md text-white px-3 py-1.5 text-sm font-semibold leading-6 bg-teal-600 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            class="mt-10 flex w-full justify-center rounded-md text-white px-3 py-1.5 text-sm font-semibold leading-6 bg-teal-600 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
             Log in
           </button>

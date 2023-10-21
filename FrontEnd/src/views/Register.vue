@@ -10,9 +10,11 @@
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
       <form class="space-y-6" @submit.prevent="signup">
         <div>
-          <label for="username" class="block text-sm font-medium leading-6 text-white"
-            >First name</label
-          >
+          <div class="flex items-center justify-between">
+            <label for="username" class="block text-sm font-medium leading-6 text-white"
+              >First name</label
+            >
+          </div>
           <div class="mt-2">
             <input
               id="firstname"
@@ -25,9 +27,11 @@
           </div>
         </div>
         <div>
-          <label for="username" class="block text-sm font-medium leading-6 text-white"
-            >Last name</label
-          >
+          <div class="flex items-center justify-between">
+            <label for="username" class="block text-sm font-medium leading-6 text-white"
+              >Last name</label
+            >
+          </div>
           <div class="mt-2">
             <input
               id="lastname"
@@ -41,9 +45,11 @@
         </div>
 
         <div>
-          <label for="username" class="block text-sm font-medium leading-6 text-white"
-            >User name</label
-          >
+          <div class="flex items-center justify-between">
+            <label for="username" class="block text-sm font-medium leading-6 text-white"
+              >User name</label
+            >
+          </div>
           <div class="mt-2">
             <input
               id="username"
@@ -58,9 +64,11 @@
 
         <!-- email -->
         <div>
-          <label for="email" class="block text-sm font-medium leading-6 text-white"
-            >Email address</label
-          >
+          <div class="flex items-center justify-between">
+            <label for="email" class="block text-sm font-medium leading-6 text-white"
+              >Email address</label
+            >
+          </div>
           <div class="mt-2">
             <input
               id="email"

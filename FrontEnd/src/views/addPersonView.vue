@@ -1,15 +1,13 @@
 <template>
-  <div
-    class="flex flex-col p-3 w-3/4 h-4/5 border border-orange-700 rounded-lg mb-4 bg-white shadow-md my-5 mx-auto"
-  >
-    <div class="font-fig mx-5 text-black">
-      <h1 class="flex justify-center font-bold text-2xl mb-3 text-gray-900">Add Person</h1>
-      <div class="flex mb-3">
+  <div class="flex flex-col p-3 border rounded-lg mb-4 bg-gray-800 shadow-md my-5 mx-auto w-full">
+    <div class="font-fig mx-5 text-white mt-10">
+      <h1 class="flex justify-center font-bold text-2xl mb-3 text-white">Add Person</h1>
+      <div class="flex flex-col mb-3 mt-10">
         <label class="my-auto" for="personType">Select Person Type:</label>
         <select
           v-model="selectedPersonType"
           id="personType"
-          class="ml-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block p-2.5"
+          class="mt-3 mb-10 ml-2 bg-gray-50 border border-gray-300 text-gray-800 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block p-2.5"
         >
           <option value="student">Student</option>
           <option value="teacher">Advisor</option>
@@ -19,38 +17,36 @@
       <div v-if="selectedPersonType === 'student'">
         <!-- Form to add student -->
         <form @submit.prevent="addStudent">
-          <div class="grid grid-cols-2 gap-4">
-            <div class="flex mb-3">
-              <label for="studentName" class="my-auto mr-2">Name:</label>
-              <input
-                class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block p-2.5"
-                v-model="studentName"
-                type="text"
-                id="studentName"
-                required
-                pattern="[A-Za-z]+"
-                title="Please enter a valid name (only alphabetic characters are allowed)."
-              />
-            </div>
-
-            <div class="flex mb-3">
-              <label for="studentSurname" class="my-auto mx-2">Surname:</label>
-              <input
-                class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block p-2.5"
-                v-model="studentSurname"
-                type="text"
-                id="studentSurname"
-                required
-                pattern="[A-Za-z]+"
-                title="Please enter a valid name (only alphabetic characters are allowed)."
-              />
-            </div>
+          <div class="flex flex-col mb-10">
+            <label for="studentName" class="my-auto mr-2">Name:</label>
+            <input
+              class="mt-3 w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block p-2.5"
+              v-model="studentName"
+              type="text"
+              id="studentName"
+              required
+              pattern="[A-Za-z]+"
+              title="Please enter a valid name (only alphabetic characters are allowed)."
+            />
           </div>
 
-          <div class="mb-3">
+          <div class="flex flex-col mb-10">
+            <label for="studentSurname" class="my-auto mx-2">Surname:</label>
+            <input
+              class="mt-3 w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block p-2.5"
+              v-model="studentSurname"
+              type="text"
+              id="studentSurname"
+              required
+              pattern="[A-Za-z]+"
+              title="Please enter a valid name (only alphabetic characters are allowed)."
+            />
+          </div>
+
+          <div class="flex flex-col mb-10">
             <label for="studentProfileImage" class="mr-2">Profile Image URL:</label>
             <input
-              class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block p-2.5"
+              class="mt-3 w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block p-2.5"
               v-model="studentProfileImage"
               type="text"
               id="studentProfileImage"
@@ -61,11 +57,11 @@
             />
           </div>
 
-          <div class="flex mb-3">
+          <div class="flex flex-col mb-10">
             <!-- course list -->
             <label for="studentCourseList" class="my-auto mr-2">Course List:</label>
             <select
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block p-2.5"
+              class="mt-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block p-2.5"
               v-model="studentCourseList"
               id="studentCourseList"
               required
@@ -91,10 +87,10 @@
             </select>
           </div>
 
-          <div class="flex mb-3">
+          <div class="flex flex-col mb-10">
             <label for="studentAdvisor" class="my-auto mr-2">Advisor:</label>
             <select
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block p-2.5"
+              class="mt-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block p-2.5"
               v-model="studentTeacher"
               id="studentAdvisor"
             >
@@ -112,9 +108,9 @@
             </select>
           </div>
 
-          <div class="flex justify-center mb-2">
+          <div class="flex flex-col mb-10">
             <button
-              class="bg-red-600 hover:bg-sky-300 shadow-md px-2 py-1 rounded-lg font-bold text-white"
+              class="mt-3 bg-teal-700 shadow-md px-2 py-1 rounded-lg font-bold hover:bg-teal-600 text-white h-10"
               type="submit"
             >
               Add Student
@@ -126,35 +122,33 @@
       <div v-else-if="selectedPersonType === 'teacher'">
         <!-- Form to add advisor-->
         <form @submit.prevent="addTeacher">
-          <div class="grid grid-cols-2 gap-4">
-            <div class="flex mb-3">
-              <label for="teacherName" class="mr-2 my-auto">Name:</label>
-              <input
-                class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block p-2.5"
-                v-model="teacherName"
-                type="text"
-                id="teacherName"
-                required
-                pattern="[A-Za-z]+"
-                title="Please enter a valid name (only alphabetic characters are allowed)."
-              />
-            </div>
-
-            <div class="flex mb-3">
-              <label for="teacherSurname" class="mr-2 my-auto">Surname:</label>
-              <input
-                class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block p-2.5"
-                v-model="teacherSurname"
-                type="text"
-                id="teacherSurname"
-                required
-                pattern="[A-Za-z]+"
-                title="Please enter a valid name (only alphabetic characters are allowed)."
-              />
-            </div>
+          <div class="flex flex-col mb-10">
+            <label for="teacherName" class="mr-2 my-auto">Name:</label>
+            <input
+              class="mt-3 w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block p-2.5"
+              v-model="teacherName"
+              type="text"
+              id="teacherName"
+              required
+              pattern="[A-Za-z]+"
+              title="Please enter a valid name (only alphabetic characters are allowed)."
+            />
           </div>
 
-          <div class="mb-3">
+          <div class="flex flex-col mb-10">
+            <label for="teacherSurname" class="mr-2 my-auto">Surname:</label>
+            <input
+              class="mt-3 w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block p-2.5"
+              v-model="teacherSurname"
+              type="text"
+              id="teacherSurname"
+              required
+              pattern="[A-Za-z]+"
+              title="Please enter a valid name (only alphabetic characters are allowed)."
+            />
+          </div>
+
+          <div class="flex flex-col mb-10">
             <label for="teacherProfileImage" class="mr-2">Profile Image URL:</label>
             <input
               placeholder="('http://..' or 'https://..)"
@@ -168,9 +162,9 @@
             />
           </div>
 
-          <div class="flex justify-center mb-2">
+          <div class="flex justify-center mb-10">
             <button
-              class="bbg-red-600 hover:bg-sky-300 shadow-md px-2 py-1 rounded-lg font-bold text-white"
+              class="mt-3 bg-teal-700 shadow-md px-2 py-1 rounded-lg font-bold hover:bg-teal-600 text-white h-10"
               type="submit"
             >
               Add Teacher
@@ -183,13 +177,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { useMessageStore } from '@/stores/message'
 import { useStudentStore } from '@/stores/student'
 import { useTeacherStore } from '@/stores/teacher'
-import { useRouter } from 'vue-router'
-import { useMessageStore } from '@/stores/message'
+import type { AdvisorDetail, StudentDetail } from '@/type'
 import { storeToRefs } from 'pinia'
-import type { StudentDetail, AdvisorDetail } from '@/type'
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 const selectedPersonType = ref('student')
 const studentName = ref('')
