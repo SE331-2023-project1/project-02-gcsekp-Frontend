@@ -71,7 +71,7 @@
               required
             >
               <option value disabled>Select Course</option>
-              
+
               <option value="Psychology">Psychology</option>
               <option value="Computer Science">Computer Science</option>
               <option value="Economics">Economics</option>
@@ -91,7 +91,6 @@
             </select>
           </div>
 
-
           <div class="flex mb-3">
             <label for="studentAdvisor" class="my-auto mr-2">Advisor:</label>
             <select
@@ -110,16 +109,16 @@
               <option value="108">Prof. Jessica</option>
               <option value="109">Dr. Robert</option>
               <option value="110">Prof. Sarah</option>
-
             </select>
           </div>
 
-        
           <div class="flex justify-center mb-2">
             <button
               class="bg-red-600 hover:bg-sky-300 shadow-md px-2 py-1 rounded-lg font-bold text-white"
-              type="submit">
-              Add Student
+              type="submit"
+            >
+              class="bg-sky-500 hover:bg-sky-700 shadow-md px-2 py-1 rounded-lg font-bold
+              text-white" type="submit" >
             </button>
           </div>
         </form>
@@ -185,13 +184,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { useMessageStore } from '@/stores/message'
 import { useStudentStore } from '@/stores/student'
 import { useTeacherStore } from '@/stores/teacher'
-import { useRouter } from 'vue-router'
-import { useMessageStore } from '@/stores/message'
+import type { AdvisorDetail, StudentDetail } from '@/type'
 import { storeToRefs } from 'pinia'
-import type { StudentDetail, AdvisorDetail } from '@/type'
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 const selectedPersonType = ref('student')
 const studentName = ref('')
@@ -199,7 +198,6 @@ const studentSurname = ref('')
 const studentProfileImage = ref('')
 const studentCourseList = ref('')
 const studentTeacher = ref('')
-
 
 const teacherName = ref('')
 const teacherSurname = ref('')
@@ -215,14 +213,14 @@ const addStudent = () => {
   const store = useStudentStore()
 
   const generateRandomID = () => {
-    const min = 100000 
-    const max = 999999 
+    const min = 100000
+    const max = 999999
     return Math.floor(Math.random() * (max - min + 1)) + min
   }
 
   const newStudent: StudentDetail = {
-    id: generateRandomID(), 
-    Student_ID: generateRandomID().toString(), 
+    id: generateRandomID(),
+    Student_ID: generateRandomID().toString(),
     FirstName: studentName.value,
     LastName: studentSurname.value,
     stu_pic: studentProfileImage.value,
@@ -231,10 +229,9 @@ const addStudent = () => {
       .map((course) => course.trim())
       .join(', '),
     advisor: parseInt(studentTeacher.value)
-    
   }
 
-  store.addStudent(newStudent) 
+  store.addStudent(newStudent)
 
   console.log(newStudent)
 
@@ -243,15 +240,13 @@ const addStudent = () => {
     storeMessage.resetMessage()
   }, 4000)
 
-  
   clearStudentForm()
 }
 
 const fetchTeachers = () => {
-  
   const teacherStore = useTeacherStore()
   teacherStore.fetchTeachersFromDB()
-  
+
   console.log(teacherStore.getTeachers)
 }
 
@@ -259,30 +254,29 @@ const addTeacher = () => {
   const storeTeacher = useTeacherStore()
 
   const generateRandomTID = () => {
-    const min = 100 
-    const max = 999 
+    const min = 100
+    const max = 999
     const randomThreeDigitNumber = Math.floor(Math.random() * (max - min + 1)) + min
     return randomThreeDigitNumber
   }
 
   const newTeacher: AdvisorDetail = {
-    id: generateRandomTID(), 
+    id: generateRandomTID(),
     FirstName: teacherName.value,
     LastName: teacherSurname.value,
     advisor_pic: teacherProfileImage.value
   }
 
-  storeTeacher.addTeacher(newTeacher) 
+  storeTeacher.addTeacher(newTeacher)
   console.log(newTeacher)
 
-  
   fetchTeachers()
 
   storeMessage.updateMessage('You are successfully for adding teacher.')
   setTimeout(() => {
     storeMessage.resetMessage()
   }, 4000)
-  
+
   clearTeacherForm()
 }
 
@@ -292,7 +286,6 @@ const clearStudentForm = () => {
   studentProfileImage.value = ''
   studentCourseList.value = ''
   studentTeacher.value = ''
-  
 }
 
 const clearTeacherForm = () => {

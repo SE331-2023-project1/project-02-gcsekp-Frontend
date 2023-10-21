@@ -11,10 +11,10 @@ const apiClient: AxiosInstance = axios.create({
   }
 })
 export default {
-    getAdvisor(): Promise<AxiosResponse<AdvisorDetail[]>> {
-      return apiClient.get<AdvisorDetail[]>('/advisor')
-    },
-    getAdvisorById(id : number) : Promise<AxiosResponse<AdvisorDetail>>{
-      return apiClient.get<AdvisorDetail>('advisor/'+ id.toString())
-    }
+  getAdvisor(): Promise<AxiosResponse<AdvisorDetail[]>> {
+    return apiClient.get<AdvisorDetail[]>('/advisor')
+  },
+  getAdvisorById(id: number): Promise<AxiosResponse<AdvisorDetail>> {
+    return apiClient.get<AdvisorDetail>('advisor/' + id.toString())
   }
+}

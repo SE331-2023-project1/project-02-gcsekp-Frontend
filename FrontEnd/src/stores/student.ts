@@ -61,14 +61,12 @@ export const useStudentStore = defineStore('student', {
     async addStudent(student: StudentDetail) {
       try {
         console.log(student)
-        
+
         const response = await axios.post(import.meta.env.VITE_BACKEND_URL + '/student', student)
 
         if (response.status === 201) {
-          this.students.push(student) 
-
+          this.students.push(student)
         } else {
-          
           console.error('Can not add student')
         }
       } catch (error) {

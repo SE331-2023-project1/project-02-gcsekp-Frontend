@@ -11,7 +11,6 @@ import StudentAdvisorView from '../views/StudentAdvisorView.vue'
 import { useTeacherStore } from '@/stores/teacher'
 import { useStudentStore } from '@/stores/student'
 
-
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -52,13 +51,13 @@ const router = createRouter({
       ]
     },
     {
-        path: '/addPerson',
-        name: 'addPerson',
-        component: addPersonView,
-        props: true
+      path: '/addPerson',
+      name: 'addPerson',
+      component: addPersonView,
+      props: true
     }
   ]
-});
+})
 
 router.beforeEach(async () => {
   NProgress.start()
@@ -81,7 +80,6 @@ router.beforeEach(() => {
 router.afterEach(() => {
   NProgress.done()
 })
-
 
 // const fetchStudents = async () => {
 //   try {
@@ -112,10 +110,5 @@ router.afterEach(() => {
 //   const TeacherData: TeacherDetail[] = await fetchTeacher();
 //   StudentService.getStudent(TeacherData);
 // })
-
-
-
-
-
 
 export default router
