@@ -57,7 +57,7 @@ setTimeout(() => {
   <div class="mt-4">
     <div class="addDetail">
       <input
-        class="border-2 border-inherit"
+        class="border-2 border-inherit text-black"
         type="text"
         v-model="newDetail"
         placeholder="Type your comment .."
@@ -65,7 +65,7 @@ setTimeout(() => {
       <span class="ml-5"></span>
       <button
         @click="addDetail"
-        class="mt-2 w-36 text-center ml-px px-3 py-0.5 bg-cyan-900 font-bold text-white rounded-md hover:bg-gray-500 transition-colors duration-200 ease-in-out font-mono"
+        class="mt-2 w-36 text-center ml-px px-3 py-0.5 bg-cyan-900 font-bold text-white rounded-md hover:bg-gray-500 transition-colors duration-200 ease-in-out font-mono mb-10"
       >
         Add Comment
       </button>

@@ -14,7 +14,7 @@ const { message } = storeToRefs(store)
         <ul class="flex border-b">
           <li class="m-2">
             <div
-              class="rounded-lg py-2 px-4 text-white hover:text-teal-600 font-mono font-semibold text-lg font-bold"
+              class="rounded-lg py-2 px-4 text-white hover:text-teal-600 font-mono text-lg font-bold"
             >
               <RouterLink to="/">Student</RouterLink>
             </div>
@@ -22,14 +22,14 @@ const { message } = storeToRefs(store)
 
           <li class="m-2">
             <div
-              class="rounded-lg py-2 px-4 text-white hover:text-teal-600 font-mono font-semibold text-lg font-bold"
+              class="rounded-lg py-2 px-4 text-white hover:text-teal-600 font-mono text-lg font-bold"
             >
               <RouterLink to="/advisor">Advisor</RouterLink>
             </div>
           </li>
           <li class="m-2">
             <div
-              class="rounded-lg py-2 px-4 text-white hover:text-teal-600 font-mono font-semibold text-lg font-bold"
+              class="rounded-lg py-2 px-4 text-white hover:text-teal-600 font-mono text-lg font-bold"
             >
               <RouterLink to="/Form"> Form </RouterLink>
             </div>
@@ -37,7 +37,7 @@ const { message } = storeToRefs(store)
 
           <li class="m-2 ml-auto">
             <div
-              class="rounded-lg py-2 px-4 text-white hover:text-teal-600 font-mono font-semibold text-lg font-bold"
+              class="rounded-lg py-2 px-4 text-white hover:text-teal-600 font-mono text-lg font-bold"
             >
               <RouterLink to="/Login">Login</RouterLink>
             </div>
