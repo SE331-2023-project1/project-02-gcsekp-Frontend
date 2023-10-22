@@ -92,6 +92,11 @@
                 <option value="Music">Music</option>
                 <option value="English">English</option>
                 <option value="Spanish">Spanish</option>
+                <option value="Sociology">Sociology</option>
+                <option value="Environmental Science">Environmental Science</option>
+                <option value="Political Science">Political Science</option>
+                <option value="Anthropology">Anthropology</option>
+                <option value="Chemical Engineering">Chemical Engineering</option>
               </select>
             </div>
 
@@ -113,6 +118,7 @@
                 <option value="108">Prof. Jessica</option>
                 <option value="109">Dr. Robert</option>
                 <option value="110">Prof. Sarah</option>
+                <option value="468">NewAdvisor</option>
               </select>
             </div>
 

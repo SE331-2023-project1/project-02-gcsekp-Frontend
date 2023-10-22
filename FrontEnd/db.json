@@ -2,7 +2,7 @@
   "student": [
     {
       "id": 1,
-      "FirstName": "Emily",
+      "FirstName": "Sophia",
       "LastName": "Johnson",
       "Student_ID": "STID-1001",
       "registered": "Mathematics, English Literature, History, Physics, Spanish",
@@ -11,7 +11,7 @@
     },
     {
       "id": 2,
-      "FirstName": "Ethan",
+      "FirstName": "Liam",
       "LastName": "Smith",
       "Student_ID": "STID-1002",
       "registered": "Physics, Computer Science, Spanish, Biology, Chemistry",
@@ -21,7 +21,7 @@
     {
       "id": 3,
       "FirstName": "Olivia",
-      "LastName": " Martinez",
+      "LastName": "Martinez",
       "Student_ID": "STID-1003",
       "registered": "Biology, Chemistry, French, Geography, Art",
       "advisor": 103,
@@ -29,7 +29,7 @@
     },
     {
       "id": 4,
-      "FirstName": "Liam",
+      "FirstName": "Noah",
       "LastName": "Anderson",
       "Student_ID": "STID-1004",
       "registered": "Economics, Mathematics, Psychology, English Literature, Music",
@@ -47,7 +47,7 @@
     },
     {
       "id": 6,
-      "FirstName": "Noah",
+      "FirstName": "Ethan",
       "LastName": "Williams",
       "Student_ID": "STID-1006",
       "registered": "English Literature, History, Geography, Chemistry, Biology",
@@ -56,7 +56,7 @@
     },
     {
       "id": 7,
-      "FirstName": "Sophia",
+      "FirstName": "Mia",
       "LastName": "Brown",
       "Student_ID": "STID-1007",
       "registered": "Mathematics, Physics, Biology, Psychology, Computer Science",
@@ -89,96 +89,6 @@
       "registered": "Geography, History, Economics, Mathematics, English Literature",
       "advisor": 110,
       "stu_pic": "https://randomuser.me/api/portraits/men/10.jpg"
-    },
-    {
-      "id": 11,
-      "FirstName": "Mia",
-      "LastName": "Taylor",
-      "Student_ID": "STID-1011",
-      "registered": "Biology, Chemistry, Music, Spanish, Physical Education",
-      "advisor": 101,
-      "stu_pic": "https://randomuser.me/api/portraits/women/11.jpg"
-    },
-    {
-      "id": 12,
-      "FirstName": "Lucas",
-      "LastName": "Moore",
-      "Student_ID": "STID-1012",
-      "registered": "Mathematics, Physics, Computer Science, History, Chemistry",
-      "advisor": 102,
-      "stu_pic": "https://randomuser.me/api/portraits/men/12.jpg"
-    },
-    {
-      "id": 13,
-      "FirstName": "Harper",
-      "LastName": "Garcia",
-      "Student_ID": "STID-1013",
-      "registered": "English Literature, History, French, Geography, Art",
-      "advisor": 103,
-      "stu_pic": "https://randomuser.me/api/portraits/women/13.jpg"
-    },
-    {
-      "id": 14,
-      "FirstName": "Benjamin",
-      "LastName": "Jackson",
-      "Student_ID": "STID-1014",
-      "registered": "Economics, Psychology, Spanish, Music, Biology",
-      "advisor": 104,
-      "stu_pic": "https://randomuser.me/api/portraits/men/14.jpg"
-    },
-    {
-      "id": 15,
-      "FirstName": "Amelia",
-      "LastName": "Lee",
-      "Student_ID": "STID-1015",
-      "registered": "Geography, Art, Physical Education, English Literature, Chemistry",
-      "advisor": 105,
-      "stu_pic": "https://randomuser.me/api/portraits/women/15.jpg"
-    },
-    {
-      "id": 16,
-      "FirstName": "Henry",
-      "LastName": "Harris",
-      "Student_ID": "STID-1016",
-      "registered": "Music, English Literature, Mathematics, Physics, Psychology",
-      "advisor": 106,
-      "stu_pic": "https://randomuser.me/api/portraits/men/16.jpg"
-    },
-    {
-      "id": 17,
-      "FirstName": "Ella",
-      "LastName": "Clark",
-      "Student_ID": "STID-1017",
-      "registered": "Chemistry, Biology, Spanish, Computer Science, Economics",
-      "advisor": 107,
-      "stu_pic": "https://randomuser.me/api/portraits/women/17.jpg"
-    },
-    {
-      "id": 18,
-      "FirstName": "Alexander",
-      "LastName": "White",
-      "Student_ID": "STID-1018",
-      "registered": "Physics, Computer Science, Geography, History, French",
-      "advisor": 108,
-      "stu_pic": "https://randomuser.me/api/portraits/men/18.jpg"
-    },
-    {
-      "id": 19,
-      "FirstName": "Charlotte",
-      "LastName": "Hall",
-      "Student_ID": "STID-1019",
-      "registered": "History, Economics, Psychology, Biology, Music",
-      "advisor": 109,
-      "stu_pic": "https://randomuser.me/api/portraits/women/19.jpg"
-    },
-    {
-      "id": 967957,
-      "Student_ID": "542032",
-      "FirstName": "NewSurName",
-      "LastName": "NewSurname",
-      "stu_pic": "https://www.simplilearn.com/image-processing-article",
-      "registered": "Psychology",
-      "advisor": 102
     }
   ],
   "advisor": [
@@ -271,12 +181,6 @@
       "Email": "sarah.adams@university.edu",
       "Office": "Building J, Room 310",
       "advisor_pic": "https://randomuser.me/api/portraits/women/40.jpg"
-    },
-    {
-      "id": 468,
-      "FirstName": "NewAdvisor",
-      "LastName": "advisor",
-      "advisor_pic": "https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg"
     }
   ]
 }

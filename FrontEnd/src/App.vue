@@ -1,5 +1,10 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
 import { RouterLink, RouterView } from 'vue-router'
+import { useMessageStore } from './stores/message'
+
+const store = useMessageStore()
+const { message } = storeToRefs(store)
 </script>
 
 <template>
