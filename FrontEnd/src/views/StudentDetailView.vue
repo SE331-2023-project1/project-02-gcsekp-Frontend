@@ -34,8 +34,10 @@ setTimeout(() => {
 </script>
 
 <template>
-  <div class=" h-13 flex items-center justify-center">
-    <div class=" text-center p-3 rounded-lg shadow-lg mt-5 mb-5 bg-white text-teal-600 text-base font-mono">
+  <div class="h-13 flex items-center justify-center">
+    <div
+      class="text-center p-3 rounded-lg shadow-lg mt-5 mb-5 bg-white text-teal-600 text-base font-mono"
+    >
       <div v-if="student">
         <p><span class="font-mono font-semibold">First Name :</span> {{ student.FirstName }}</p>
         <p><span class="font-mono font-semibold">Last Name :</span> {{ student.LastName }}</p>
@@ -59,7 +61,6 @@ setTimeout(() => {
         type="text"
         v-model="newDetail"
         placeholder="Type your comment .."
-        
       />
       <span class="ml-5"></span>
       <button
@@ -70,7 +71,7 @@ setTimeout(() => {
       </button>
     </div>
   </div>
-  
+
   <!-- Flash Message -->
 
   <div v-if="flashMessage.isVisible" class="mt-4">

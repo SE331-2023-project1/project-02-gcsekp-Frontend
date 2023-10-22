@@ -42,7 +42,7 @@ AdvisorService.getAdvisorById(Number(props.id))
 </script>
 
 <template>
-  <div class=" text-center bg-gray-800 rounded-lg ">
+  <div class="text-center bg-gray-800 rounded-lg">
     <div v-if="student">
       <h1 class="text-2xl font-mono font-semibold mt-5 mb-5 text-white">
         {{ `${student.FirstName} ${student.LastName}` }}

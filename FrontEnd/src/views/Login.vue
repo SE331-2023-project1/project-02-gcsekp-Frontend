@@ -53,7 +53,7 @@
             type="submit"
             class="mt-10 flex w-full justify-center rounded-md text-white px-3 py-1.5 text-sm font-semibold leading-6 bg-teal-600 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
-            Log in
+            Sign in
           </button>
         </div>
       </form>
