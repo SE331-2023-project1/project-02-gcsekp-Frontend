@@ -34,14 +34,16 @@ setTimeout(() => {
 </script>
 
 <template>
-  <div class="text-center pd-10 py-8 text-teal-600 text-base font-mono">
-    <div v-if="student">
-      <p><span class="font-mono font-semibold">First Name :</span> {{ student.FirstName }}</p>
-      <p><span class="font-mono font-semibold">Last Name :</span> {{ student.LastName }}</p>
-      <p><span class="font-mono font-semibold">Student ID :</span> {{ student.Student_ID }}</p>
-      <p>
-        <span class="font-mono font-semibold mb-10">Registered on :</span> {{ student.registered }}
-      </p>
+  <div class=" h-13 flex items-center justify-center">
+    <div class=" text-center p-3 rounded-lg shadow-lg mt-5 mb-5 bg-white text-teal-600 text-base font-mono">
+      <div v-if="student">
+        <p><span class="font-mono font-semibold">First Name :</span> {{ student.FirstName }}</p>
+        <p><span class="font-mono font-semibold">Last Name :</span> {{ student.LastName }}</p>
+        <p><span class="font-mono font-semibold">Student ID :</span> {{ student.Student_ID }}</p>
+        <p>
+          <span class="font-mono font-semibold mb-1">Registered on :</span> {{ student.registered }}
+        </p>
+      </div>
     </div>
   </div>
 
