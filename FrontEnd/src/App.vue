@@ -1,12 +1,10 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from "vue-router";
+import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
   <header>
-    <nav
-      class="flex justify-between items-center text-white font-mono mb-2 bg-red-800"
-    >
+    <nav class="flex justify-between items-center text-white font-mono mb-2 bg-red-800">
       <div class="flex items-center font-mono">
         <img
           alt="Vue logo"

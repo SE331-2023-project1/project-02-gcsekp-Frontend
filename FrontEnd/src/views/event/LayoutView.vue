@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { useStudentStore } from "@/stores/student";
-import { storeToRefs } from "pinia";
-import { ref } from "vue";
+import { useStudentStore } from '@/stores/student'
+import { storeToRefs } from 'pinia'
+import { ref } from 'vue'
 
-const store = useStudentStore();
-const { student, professer } = storeToRefs(store);
-const id = ref(student?.value?.id);
+const store = useStudentStore()
+const { student, professer } = storeToRefs(store)
+const id = ref(student?.value?.id)
 </script>
 
 <template>
@@ -17,9 +17,7 @@ const id = ref(student?.value?.id);
       alt="Student Image"
       class="border-2 border-black h-48 w-42 object-cover"
     />
-    <h1 class="font-mono font-bold text-2xl">
-      StudentID: {{ student.studentID }}
-    </h1>
+    <h1 class="font-mono font-bold text-2xl">StudentID: {{ student.studentID }}</h1>
     <div class="mb-4">
       <RouterLink
         :to="{ name: 'student-detail', params: { id } }"

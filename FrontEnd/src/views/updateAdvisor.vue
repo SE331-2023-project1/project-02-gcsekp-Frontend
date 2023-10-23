@@ -1,14 +1,10 @@
 <template>
   <div v-if="currentAdviser.id" class="flex flex-col items-center mt-6">
-    <p class="text-2xl font-mono font-bold text-center">
-      Update Adviser Details
-    </p>
+    <p class="text-2xl font-mono font-bold text-center">Update Adviser Details</p>
     <form>
       <div class="mb-4"></div>
       <div class="mb-4">
-        <label for="Name" class="block text-gray-700 font-bold mb-2"
-          >Name</label
-        >
+        <label for="Name" class="block text-gray-700 font-bold mb-2">Name</label>
         <input
           type="text"
           v-model="currentAdviser.name"
@@ -16,9 +12,7 @@
         />
       </div>
       <div class="mb-4">
-        <label for="Surname" class="block text-gray-700 font-bold mb-2"
-          >Surname</label
-        >
+        <label for="Surname" class="block text-gray-700 font-bold mb-2">Surname</label>
         <input
           id="description"
           v-model="currentAdviser.surname"
@@ -26,9 +20,7 @@
         />
       </div>
       <div class="mb-4">
-        <label for="Department" class="block text-gray-700 font-bold mb-2"
-          >Department</label
-        >
+        <label for="Department" class="block text-gray-700 font-bold mb-2">Department</label>
         <input
           type="text"
           v-model="currentAdviser.department"
@@ -36,9 +28,7 @@
         />
       </div>
       <div class="mb-4">
-        <label for="Position" class="block text-gray-700 font-bold mb-2"
-          >Position</label
-        >
+        <label for="Position" class="block text-gray-700 font-bold mb-2">Position</label>
         <input
           type="text"
           v-model="currentAdviser.position"
@@ -64,29 +54,29 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import AdviserItem from "@/types";
-import ResponseData from "@/types/ResponseData";
-import AdviserService from "@/services/AdviserService";
+import { defineComponent } from 'vue'
+import AdviserItem from '@/types'
+import ResponseData from '@/types/ResponseData'
+import AdviserService from '@/services/AdviserService'
 
 export default defineComponent({
-  name: "student",
+  name: 'student',
   data() {
     return {
       currentAdviser: {} as AdviserItem,
-      message: "",
-    };
+      message: ''
+    }
   },
   methods: {
     getStudet(id: any) {
       AdviserService.getAdviserById(id)
         .then((response: ResponseData) => {
-          this.currentAdviser = response.data;
-          console.log(response.data);
+          this.currentAdviser = response.data
+          console.log(response.data)
         })
         .catch((e: Error) => {
-          console.log(e);
-        });
+          console.log(e)
+        })
     },
     updateStudent() {
       let data = {
@@ -95,24 +85,24 @@ export default defineComponent({
         surname: this.currentAdviser.surname,
         image: this.currentAdviser.image,
         department: this.currentAdviser.department,
-        position: this.currentAdviser.position,
-      };
+        position: this.currentAdviser.position
+      }
       AdviserService.updateAdvisorById(this.currentAdviser.id, data)
         .then((response: ResponseData) => {
-          console.log(response.data);
-          this.message = "The Adviser Information was updated successfully!";
+          console.log(response.data)
+          this.message = 'The Adviser Information was updated successfully!'
           setTimeout(() => {
-            this.message = ""; // Clear the message
-          }, 3000);
+            this.message = '' // Clear the message
+          }, 3000)
         })
         .catch((e: Error) => {
-          console.log(e);
-        });
-    },
+          console.log(e)
+        })
+    }
   },
   mounted() {
-    this.message = "";
-    this.getStudet(this.$route.params.id);
-  },
-});
+    this.message = ''
+    this.getStudet(this.$route.params.id)
+  }
+})
 </script>

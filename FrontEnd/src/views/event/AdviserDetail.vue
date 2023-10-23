@@ -1,40 +1,40 @@
 <script setup lang="ts">
-import router from "@/router";
-import { useMessageStore } from "@/stores/message";
-import { type AdviserItem, type StudentItem } from "@/type";
-import { ref, type PropType } from "vue";
+import router from '@/router'
+import { useMessageStore } from '@/stores/message'
+import { type AdviserItem, type StudentItem } from '@/type'
+import { ref, type PropType } from 'vue'
 const props = defineProps({
   professer: {
     type: Object as PropType<AdviserItem>,
-    require: true,
+    require: true
   },
   student: {
     type: Object as PropType<StudentItem>,
-    require: true,
-  },
-});
+    require: true
+  }
+})
 
-const store = useMessageStore();
-const comment = ref("");
+const store = useMessageStore()
+const comment = ref('')
 function onSubmit() {
-  store.updateMessage(String(props.student?.id), comment.value); // assuming adviserId is available from props or elsewhere
-  comment.value = "";
+  store.updateMessage(String(props.student?.id), comment.value) // assuming adviserId is available from props or elsewhere
+  comment.value = ''
   router.push({
-    name: "student-detail",
-  });
+    name: 'student-detail'
+  })
 }
 
 function flashMessagge() {
-  store.updateflashcard("Welcome to Adviser Profile");
+  store.updateflashcard('Welcome to Adviser Profile')
   setTimeout(() => {
-    store.resetflashcard();
-  }, 3000);
+    store.resetflashcard()
+  }, 3000)
   router.push({
-    name: "professer-profile",
+    name: 'professer-profile',
     params: {
-      id: props.professer?.id,
-    },
-  });
+      id: props.professer?.id
+    }
+  })
 }
 </script>
 
@@ -53,10 +53,7 @@ function flashMessagge() {
   </div>
   <div>
     <div class="text-center">
-      <button
-        @click="flashMessagge"
-        class="font-extrabold hover:text-red-800 font-mono underline"
-      >
+      <button @click="flashMessagge" class="font-extrabold hover:text-red-800 font-mono underline">
         More details
       </button>
     </div>
@@ -68,10 +65,7 @@ function flashMessagge() {
         class="border-2 border-black h-16 w-80 p-2 break-words mt-2 text-center"
       />
       <div>
-        <button
-          @click="onSubmit"
-          class="my-2 hover:text-red-800 font-extrabold underline"
-        >
+        <button @click="onSubmit" class="my-2 hover:text-red-800 font-extrabold underline">
           Submit
         </button>
       </div>

@@ -1,23 +1,23 @@
-import type { AdviserItem } from "@/type";
-import { defineStore } from "pinia";
+import type { AdviserItem } from '@/type'
+import { defineStore } from 'pinia'
 
-export const useAdviserStore = defineStore("advisert", {
+export const useAdviserStore = defineStore('advisert', {
   state: () => ({
     temporaryAdviser: [] as AdviserItem[],
     professer: null as AdviserItem | null
   }),
   actions: {
     addTemporaryAdviser(adviser: AdviserItem) {
-      this.temporaryAdviser.unshift(adviser);
+      this.temporaryAdviser.unshift(adviser)
     },
     getTemporaryAdviser() {
-      return this.temporaryAdviser;
+      return this.temporaryAdviser
     },
     clearTemporaryAdviser() {
-      this.temporaryAdviser = [];
+      this.temporaryAdviser = []
     },
-    setAdviser(professer: AdviserItem ){
+    setAdviser(professer: AdviserItem) {
       this.professer = professer
+    }
   }
-  },
-});
+})

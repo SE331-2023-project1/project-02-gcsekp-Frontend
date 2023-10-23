@@ -1,53 +1,51 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import type { AdviserItem } from "@/type";
-import { useMessageStore } from "@/stores/message";
-import { storeToRefs } from "pinia";
-import { useRouter } from "vue-router";
-import AdviserService from "@/services/AdviserService";
-import UploadImage from "@/components/UploadImage.vue";
+import { ref } from 'vue'
+import type { AdviserItem } from '@/type'
+import { useMessageStore } from '@/stores/message'
+import { storeToRefs } from 'pinia'
+import { useRouter } from 'vue-router'
+import AdviserService from '@/services/AdviserService'
+import UploadImage from '@/components/UploadImage.vue'
 
-const store = useMessageStore();
-const { flashMessage } = storeToRefs(store);
-const router = useRouter();
+const store = useMessageStore()
+const { flashMessage } = storeToRefs(store)
+const router = useRouter()
 
 const adviser = ref<AdviserItem>({
   id: 0,
-  name: "",
-  surname: "",
-  position: "",
+  name: '',
+  surname: '',
+  position: '',
   image: [],
-  department: "",
+  department: '',
   studentList: [],
   student: {
     id: 0,
-    name: "",
-    surname: "",
-    studentID: "",
+    name: '',
+    surname: '',
+    studentID: '',
     image: [],
-    department: "",
-  },
-});
+    department: ''
+  }
+})
 
 function saveAdviser() {
   AdviserService.saveAdviser(adviser.value).then((res) => {
-    console.log(res.data);
+    console.log(res.data)
     router
       .push({
-        name: "professer",
-        params: { id: res.data.id },
+        name: 'professer',
+        params: { id: res.data.id }
       })
       .catch(() => {
-        router.push({ name: "network-error " });
-      });
+        router.push({ name: 'network-error ' })
+      })
 
-    store.updateflashcard(
-      "Successfully to add new Adviser for " + res.data.name
-    );
+    store.updateflashcard('Successfully to add new Adviser for ' + res.data.name)
     setTimeout(() => {
-      store.resetflashcard();
-    }, 3000);
-  });
+      store.resetflashcard()
+    }, 3000)
+  })
 }
 </script>
 
@@ -55,9 +53,7 @@ function saveAdviser() {
   <div class="flex justify-center">
     <div class="text-center">
       <div class="my-10">
-        <p class="text-2xl font-mono font-bold text-center">
-          Add Adviser Details
-        </p>
+        <p class="text-2xl font-mono font-bold text-center">Add Adviser Details</p>
         <p class="text-center text-blue-600">{{ flashMessage }}</p>
       </div>
       <div class="flex justify-center">
