@@ -1,78 +1,98 @@
 <script setup lang="ts">
-import AdvisorCard from '@/components/AdvisorCard.vue'
-import AdvisorService from '@/services/AdvisorService'
-import type { AdvisorDetail } from '@/type'
-import type { Ref } from 'vue'
-import { computed, ref } from 'vue'
+import AdviserList from "@/components/AdviserList.vue";
+import BaseInput from "@/components/BaseInput.vue";
+import router from "@/router";
+import AdviserService from "@/services/AdviserService";
+import { useAdviserStore } from "@/stores/newAdviser";
+import type { AdviserItem } from "@/type";
+import type { AxiosResponse } from "axios";
+import type { Ref } from "vue";
+import { computed, ref, watchEffect } from "vue";
+const adviserStore = useAdviserStore();
+const professer: Ref<Array<AdviserItem>> = ref([]);
+const totalEvent = ref<number>(0);
+const eventsPerPage = ref(4);
+const props = defineProps({
+  page: {
+    type: Number,
+    required: true,
+    keyword: null
+  },
+});
+watchEffect(() => {
+  AdviserService.getAdvisers(eventsPerPage.value, props.page).then(
+    (response: AxiosResponse<AdviserItem[]>) => {
+      professer.value = response.data;
+      professer.value = [
+        ...adviserStore.getTemporaryAdviser(),
+        ...professer.value,
+      ];
+      totalEvent.value = response.headers["x-total-count"];
+    }
+  );
+});
 
-const advisors: Ref<Array<AdvisorDetail>> = ref([])
-const itemsPerPage = 3
-const currentPage = ref(1)
+const hasNextPages = computed(() => {
+  const totalPages = Math.ceil(totalEvent.value / eventsPerPage.value);
+  return props.page.valueOf() < totalPages;
+});
 
-AdvisorService.getAdvisor()
-  .then((response) => {
-    advisors.value = response.data
-  })
-  .catch((error) => {
-    console.error('Error fetching advisors:', error)
-  })
-
-const nextPage = () => {
-  if (currentPage.value < Math.ceil(advisors.value.length / itemsPerPage)) {
-    currentPage.value++
+const keyword = ref('')
+function updateKeyword (value: string) {
+  let queryFunction;
+  if (keyword.value === ''){
+    queryFunction = AdviserService.getAdvisers(6, 1)
+  }else {
+    queryFunction = AdviserService.getAdvisorByKeyword(keyword.value, 6, 1)
   }
+  queryFunction.then((response: AxiosResponse<AdviserItem[]>) => {
+    professer.value = response.data
+    console.log('students',professer.value)
+    totalEvent.value = response.headers['x-total-count']
+    console.log('totalAdvisor',totalEvent.value)
+  }).catch(() => {
+    router.push({ name: 'network-errorr' })
+  })
 }
-
-const prevPage = () => {
-  if (currentPage.value > 1) {
-    currentPage.value--
-  }
-}
-
-const displayedadvisors = computed(() => {
-  const startIndex = (currentPage.value - 1) * itemsPerPage
-  const endIndex = startIndex + itemsPerPage
-  return advisors.value.slice(startIndex, endIndex)
-})
 </script>
 
 <template>
-  <div
-    class="mt-5 mb-10 flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 bg-gray-800 rounded-lg"
-  >
-    <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-      <h2 class="mt-3 text-center text-2xl font-bold leading-9 tracking-tight text-white">
-        Advisors
-      </h2>
-    </div>
-
-    <div class="advisor">
-      <div class="mt-10 mb-10 grid gap-10 grid-cols-3 grid-row-3">
-        <AdvisorCard
-          v-for="advisor in displayedadvisors"
-          :key="advisor.id"
-          :advisor="advisor"
-        ></AdvisorCard>
-      </div>
-    </div>
-    <div class="pagination flex justify-between">
-      <button
-        v-if="currentPage > 1"
-        @click="prevPage"
-        class="ml-px mb-5 px-3 py-2 bg-teal-700 font-bold text-white rounded-md hover:bg-teal-600 transition-colors duration-200 ease-in-out"
+  <div>
+    <div class="w-64 ml-10 mt-10 font-mono">
+    <BaseInput 
+    v-model="keyword"
+    placeholder="Search..."
+    @input="updateKeyword"
+    class="w-full p-2 border"
+    />
+  </div>
+    <div class="grid grid-cols-2 gap-2 mt-10">
+      <AdviserList
+        v-for="professers in professer"
+        :key="professers.id"
+        :professer="professers"
       >
-        ◀ Back
-      </button>
-      <button
-        v-if="currentPage < Math.ceil(advisors.length / itemsPerPage)"
-        @click="nextPage"
-        :class="[
-          'mb-5 px-3 py-2 bg-teal-700 font-bold text-white rounded-md hover:bg-teal-600 transition-colors duration-200 ease-in-out ',
-          currentPage > 1 ? 'ml-10' : ''
-        ]"
+      </AdviserList>
+    </div>
+    <div class="flex justify-around space-x-28">
+      <RouterLink
+        :to="{ name: 'professer', query: { page: page - 1 } }"
+        rel="prev"
+        v-if="page != 1"
+        id="page-prev"
+        class="font-bold hover:text-red-800"
       >
-        Next ▶
-      </button>
+        Prev page
+      </RouterLink>
+      <RouterLink
+        :to="{ name: 'professer', query: { page: page + 1 } }"
+        rel="next"
+        v-if="hasNextPages"
+        id="page-next"
+        class="font-bold hover:text-green-600"
+      >
+        Next page
+      </RouterLink>
     </div>
   </div>
 </template>
