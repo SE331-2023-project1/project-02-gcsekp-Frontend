@@ -51,7 +51,7 @@ function saveAdviser() {
 
 <template>
   <div class="flex justify-center">
-    <div class="text-center">
+    <div class="text-center bg-gray-600 w-full rounded-lg">
       <div class="my-10">
         <p class="text-2xl font-mono font-bold text-center">Add Adviser Details</p>
         <p class="text-center text-blue-600">{{ flashMessage }}</p>

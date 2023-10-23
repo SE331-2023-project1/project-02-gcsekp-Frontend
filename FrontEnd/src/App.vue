@@ -3,11 +3,10 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <header>
-    <nav
-      class="flex justify-between items-center text-black font-mono mb-2 bg-teal-600 h-20 min-h-full rounded-lg"
-    >
-      <div class="space-x-10 mr-20 font-mono">
+  <header class="bg-teal-600 py-3">
+    <div class="container mx-auto flex items-center justify-between mt-5 text-gray-800">
+      <!-- Left-side navigation links -->
+      <div class="space-x-6 px-10">
         <RouterLink
           to="/"
           class="font-black text-lg"
@@ -29,15 +28,36 @@ import { RouterLink, RouterView } from 'vue-router'
           exact-active-class="active-link"
           >Add Adviser</RouterLink
         >
+      </div>
+      <!-- Search bar -->
+      <!-- <div class="flex-1">
+        <input"
+          type="text"
+          class="w-full py-2 px-5 rounded-lg bg-white text-gray-800"
+          placeholder="Search"
+        />
+      </div> -->
+
+      <div class="flex-1">
+        <input
+          type="text"
+          v-model="keyword"
+          placeholder="Search..."
+          @input="updateKeyword"
+          class="w-full py-2 px-5 rounded-lg bg-white text-gray-800"
+        />
+      </div>
+      <!-- Right-side Login link -->
+      <div>
         <RouterLink
           to="/Login"
-          class="font-black text-lg ml-auto"
+          class="font-black text-lg ml-auto px-10"
           active-class="active-link"
           exact-active-class="active-link"
           >Login</RouterLink
         >
       </div>
-    </nav>
+    </div>
     <RouterView />
   </header>
 </template>

@@ -12,6 +12,8 @@ import StudentDetail from '@/views/event/StudentDetail.vue'
 import UpdateStudent from '@/views/event/updateStudent.vue'
 import UpdateAdviserView from '@/views/updateAdvisor.vue'
 import NProgress from 'nprogress'
+import Login from '../views/Login.vue'
+import Register from '../views/Register.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -36,6 +38,16 @@ const router = createRouter({
       path: '/advisors/:id',
       name: 'update-advisor',
       component: UpdateAdviserView
+    },
+    {
+      path: '/Login',
+      name: 'Login',
+      component: Login
+    },
+    {
+      path: '/Register',
+      name: 'Register',
+      component: Register
     },
     {
       path: '/AddView',
