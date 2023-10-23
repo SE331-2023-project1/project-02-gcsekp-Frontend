@@ -1,78 +1,94 @@
 <script setup lang="ts">
-import StudentService from '@/services/StudentService'
-import type { StudentDetail } from '@/type'
-import type { Ref } from 'vue'
-import { computed, ref } from 'vue'
-import StudentCard from '../components/StudentCard.vue'
+import BaseInput from "@/components/BaseInput.vue";
+import StudentCard from "@/components/StudentCard.vue";
+import router from "@/router";
+import StudentService from "@/services/StudentService";
+import type { StudentItem } from "@/type";
+import type { AxiosResponse } from "axios";
+import type { Ref } from "vue";
+import { computed, ref, watchEffect } from "vue";
+const students: Ref<Array<StudentItem>> = ref([]);
+const totalEvent = ref<number>(0);
+const eventsPerPage = ref(6);
+const props = defineProps({
+  page: {
+    type: Number,
+    required: true,
+    keyword: null
+  },
+});
+watchEffect(() => {
+  StudentService.getStudent(eventsPerPage.value, props.page).then(
+    (response: AxiosResponse<StudentItem[]>) => {
+      students.value = response.data;
+      totalEvent.value = response.headers["x-total-count"];
+    }
+  );
+});
 
-const students: Ref<Array<StudentDetail>> = ref([])
-const itemsPerPage = 6
-const currentPage = ref(1)
+const hasNextPages = computed(() => {
+  const totalPages = Math.ceil(totalEvent.value / eventsPerPage.value);
+  return props.page.valueOf() < totalPages;
+});
 
-StudentService.getStudent()
-  .then((response) => {
+const keyword = ref('')
+function updateKeyword (value: string) {
+  let queryFunction;
+  if (keyword.value === ''){
+    queryFunction = StudentService.getStudent(6, 1)
+  }else {
+    queryFunction = StudentService.getStudentByKeyword(keyword.value, 6, 1)
+  }
+  queryFunction.then((response: AxiosResponse<StudentItem[]>) => {
     students.value = response.data
+    console.log('students',students.value)
+    totalEvent.value = response.headers['x-total-count']
+    console.log('totalStudent',totalEvent.value)
+  }).catch(() => {
+    router.push({ name: 'network-errorr' })
   })
-  .catch((error) => {
-    console.error('Error fetching students:', error)
-  })
-
-const nextPage = () => {
-  if (currentPage.value < Math.ceil(students.value.length / itemsPerPage)) {
-    currentPage.value++
-  }
 }
 
-const prevPage = () => {
-  if (currentPage.value > 1) {
-    currentPage.value--
-  }
-}
-
-const displayedStudents = computed(() => {
-  const startIndex = (currentPage.value - 1) * itemsPerPage
-  const endIndex = startIndex + itemsPerPage
-  return students.value.slice(startIndex, endIndex)
-})
 </script>
 
 <template>
-  <div
-    class="mt-5 flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 bg-gray-800 rounded-lg"
-  >
-    <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-      <h2 class="mt-3 text-center text-2xl font-bold leading-9 tracking-tight text-white">
-        Students
-      </h2>
-    </div>
+  <div>
+  <div class="w-64 ml-10 mt-10 font-mono">
+    <BaseInput 
+    v-model="keyword"
+    placeholder="Search..."
+    @input="updateKeyword"
+    class="w-full p-2 border"
+    />
 
-    <div class="student">
-      <div class="mt-10 mb-10 grid gap-10 grid-cols-3 grid-row-3">
-        <StudentCard
-          v-for="student in displayedStudents"
-          :key="student.id"
-          :student="student"
-        ></StudentCard>
-      </div>
+  </div>
+    <div class="grid grid-cols-2 gap-2 mb-4 mt-10">
+      <StudentCard
+        v-for="student in students"
+        :key="student.studentID"
+        :student="student"
+      >
+      </StudentCard>
     </div>
-    <div class="pagination flex justify-between">
-      <button
-        v-if="currentPage > 1"
-        @click="prevPage"
-        class="ml-px mb-5 px-3 py-2 bg-teal-700 font-bold text-white rounded-md hover:bg-teal-600 transition-colors duration-200 ease-in-out"
+    <div class="flex justify-around space-x-28">
+      <RouterLink
+        :to="{ name: 'students', query: { page: page - 1 } }"
+        rel="prev"
+        v-if="page != 1"
+        id="page-prev"
+        class="font-bold hover:text-red-800"
       >
-        ◀ Back
-      </button>
-      <button
-        v-if="currentPage < Math.ceil(students.length / itemsPerPage)"
-        @click="nextPage"
-        :class="[
-          'mb-5 px-3 py-2 bg-teal-700 font-bold text-white rounded-md hover:bg-teal-600 transition-colors duration-200 ease-in-out ',
-          currentPage > 1 ? 'ml-10' : ''
-        ]"
+        Prev page
+      </RouterLink>
+      <RouterLink
+        :to="{ name: 'students', query: { page: page + 1 } }"
+        rel="next"
+        v-if="hasNextPages"
+        id="page-next"
+        class="font-bold hover:text-green-600"
       >
-        Next ▶
-      </button>
+        Next page
+      </RouterLink>
     </div>
   </div>
 </template>
