@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import type { AdviserItem } from '@/type'
-import { useMessageStore } from '@/stores/message'
-import { storeToRefs } from 'pinia'
-import { useRouter } from 'vue-router'
-import AdviserService from '@/services/AdviserService'
 import UploadImage from '@/components/UploadImage.vue'
+import AdviserService from '@/services/AdviserService'
+import { useMessageStore } from '@/stores/message'
+import type { AdviserItem } from '@/type'
+import { storeToRefs } from 'pinia'
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 const store = useMessageStore()
 const { flashMessage } = storeToRefs(store)
