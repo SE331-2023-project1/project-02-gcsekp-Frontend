@@ -1,20 +1,32 @@
-import axios from 'axios'
-import type { AxiosInstance, AxiosResponse } from 'axios'
-import type { AdvisorDetail } from '@/type'
+import type { AdviserItem } from "@/type";
+import type { AxiosResponse } from "axios";
+import apiClient from "./AxiosClient";
 
-const apiClient: AxiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_BACKEND_URL,
-  withCredentials: false,
-  headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/json'
-  }
-})
 export default {
-  getAdvisor(): Promise<AxiosResponse<AdvisorDetail[]>> {
-    return apiClient.get<AdvisorDetail[]>('/advisor')
+  getAdvisers(
+    perPage: number,
+    page: number
+  ): Promise<AxiosResponse<AdviserItem[]>> {
+    return apiClient.get<AdviserItem[]>(
+      "/advisors?_limit=" + perPage + "&_page=" + page
+    );
   },
-  getAdvisorById(id: number): Promise<AxiosResponse<AdvisorDetail>> {
-    return apiClient.get<AdvisorDetail>('advisor/' + id.toString())
-  }
-}
+  getAdviserById(id: number): Promise<AxiosResponse<AdviserItem>> {
+    return apiClient.get<AdviserItem>("advisors/" + id.toString());
+  },
+  saveAdviser(advisers: AdviserItem): Promise<AxiosResponse<AdviserItem>> {
+    return apiClient.post<AdviserItem>("/advisors", advisers);
+  },
+  getAdviserBy(): Promise<AxiosResponse<AdviserItem[]>> {
+    return apiClient.get<AdviserItem[]>("/advisors");
+  },
+  updateAdvisorById(
+    id: any,
+    adviser: any
+  ): Promise<AxiosResponse<AdviserItem>> {
+    return apiClient.put<AdviserItem>("/advisors/" + id.toString(), adviser);
+  },
+  getAdvisorByKeyword(keyword: string, perPage: number, page: number):Promise<AxiosResponse<AdviserItem[]>> {
+    return apiClient.get<AdviserItem[]>('/advisors?title=' +keyword +'&_limit='+ perPage+'&_page=' +page)
+  },
+};
