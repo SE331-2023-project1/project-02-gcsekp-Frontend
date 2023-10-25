@@ -40,7 +40,7 @@ function flashMessagge() {
 
 <template>
   <div class="flex flex-row justify-center">
-    <div class="font-mono text-center">
+    <div class="font-mono text-center text-white">
       <div class="grid grid-cols-2 text-left">
         <p class="font-semibold">Advisor ID:</p>
         <p class="text-center">{{ student?.advisor.advisorID }}</p>
@@ -53,7 +53,10 @@ function flashMessagge() {
   </div>
   <div>
     <div class="text-center">
-      <button @click="flashMessagge" class="font-extrabold hover:text-red-800 font-mono underline">
+      <button
+        @click="flashMessagge"
+        class="font-extrabold hover:text-teal-600 font-mono text-white my-10"
+      >
         More details
       </button>
     </div>
@@ -62,10 +65,13 @@ function flashMessagge() {
         type="text"
         placeholder="Enter comment .."
         v-model="comment"
-        class="border-2 border-black h-16 w-80 p-2 break-words mt-2 text-center"
+        class="text-gray-600 h-16 w-80 p-2 break-words mt-2 text-center"
       />
       <div>
-        <button @click="onSubmit" class="my-2 hover:text-red-800 font-extrabold underline">
+        <button
+          @click="onSubmit"
+          class="mb-10 mt-10 bg-teal-600 text-white hover:bg-teal-500 font-bold py-2 px-4 rounded"
+        >
           Submit
         </button>
       </div>
@@ -75,6 +81,6 @@ function flashMessagge() {
 
 <style scoped>
 .active-link {
-  color: red;
+  color: white;
 }
 </style>

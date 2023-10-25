@@ -29,24 +29,7 @@ import { RouterLink, RouterView } from 'vue-router'
           >Add Adviser</RouterLink
         >
       </div>
-      <!-- Search bar -->
-      <!-- <div class="flex-1">
-        <input"
-          type="text"
-          class="w-full py-2 px-5 rounded-lg bg-white text-gray-800"
-          placeholder="Search"
-        />
-      </div> -->
 
-      <div class="flex-1">
-        <input
-          type="text"
-          v-model="keyword"
-          placeholder="Search..."
-          @input="updateKeyword"
-          class="w-full py-2 px-5 rounded-lg bg-white text-gray-800"
-        />
-      </div>
       <!-- Right-side Login link -->
       <div>
         <RouterLink

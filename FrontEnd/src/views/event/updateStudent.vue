@@ -58,19 +58,19 @@ import UploadImage from '@/components/UploadImage.vue'
   <div v-if="currentStudent.id">
     <form>
       <div class="mb-4">
-        <label for="Name" class="block text-gray-700 font-bold mb-2">Name</label>
+        <label for="Name" class="block text-white font-bold mb-2">Name</label>
         <input
           type="text"
           v-model="currentStudent.name"
-          class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300"
+          class="text-black w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300"
         />
       </div>
       <div class="mb-4">
-        <label for="Surname" class="block text-gray-700 font-bold mb-2">Surname</label>
+        <label for="Surname" class="block text-white font-bold mb-2">Surname</label>
         <input
           id="description"
           v-model="currentStudent.surname"
-          class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300"
+          class="text-black w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300"
         />
       </div>
     </form>
@@ -80,10 +80,10 @@ import UploadImage from '@/components/UploadImage.vue'
       </p>
     </div>
     <UploadImage v-model="currentStudent.image" />
-    <div>
+    <div class="mt-10 flex justify-center">
       <button
         type="submit"
-        class="mt-3 bg-red-800 hover:bg-red-500 text-white font-bold py-2 px-4 rounded"
+        class="mb-10 mt-3 bg-teal-600 hover:bg-teal-500 text-white font-bold py-2 px-4 rounded"
         @click="updateStudent"
       >
         Update

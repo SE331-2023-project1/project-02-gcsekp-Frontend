@@ -1,50 +1,53 @@
 <template>
-  <div v-if="currentAdviser.id" class="flex flex-col items-center mt-6">
-    <p class="text-2xl font-mono font-bold text-center">Update Adviser Details</p>
+  <div
+    v-if="currentAdviser.id"
+    class="flex flex-col items-center mt-10 bg-gray-600 mb-10 mr-10 ml-10 rounded-lg"
+  >
+    <p class="text-2xl font-mono font-bold text-center p-10 text-white">Update Adviser Details</p>
     <form>
       <div class="mb-4"></div>
       <div class="mb-4">
-        <label for="Name" class="block text-gray-700 font-bold mb-2">Name</label>
+        <label for="Name" class="block text-white font-bold mb-2">Name</label>
         <input
           type="text"
           v-model="currentAdviser.name"
-          class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300"
+          class="w-full px-3 py-2 border text-black rounded-lg focus:outline-none focus:ring focus:border-blue-300"
         />
       </div>
       <div class="mb-4">
-        <label for="Surname" class="block text-gray-700 font-bold mb-2">Surname</label>
+        <label for="Surname" class="block text-white font-bold mb-2">Surname</label>
         <input
           id="description"
           v-model="currentAdviser.surname"
-          class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300"
+          class="w-full px-3 py-2 border rounded-lg text-black focus:outline-none focus:ring focus:border-blue-300"
         />
       </div>
       <div class="mb-4">
-        <label for="Department" class="block text-gray-700 font-bold mb-2">Department</label>
+        <label for="Department" class="block text-white font-bold mb-2">Department</label>
         <input
           type="text"
           v-model="currentAdviser.department"
-          class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300"
+          class="w-full px-3 py-2 border rounded-lg text-black focus:outline-none focus:ring focus:border-blue-300"
         />
       </div>
       <div class="mb-4">
-        <label for="Position" class="block text-gray-700 font-bold mb-2">Position</label>
+        <label for="Position" class="block text-white font-bold mb-2">Position</label>
         <input
           type="text"
           v-model="currentAdviser.position"
-          class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300"
+          class="w-full px-3 py-2 border rounded-lg text-black focus:outline-none focus:ring focus:border-blue-300"
         />
       </div>
     </form>
     <div class="mb-5" v-if="message">
-      <p class="text-red-600 p-3 border border-red-600 rounded">
+      <p class="text-white p-3 border border-teal-600 rounded">
         {{ message }}
       </p>
     </div>
     <div>
       <button
         type="submit"
-        class="mt-3 bg-red-800 hover:bg-red-500 text-white font-bold py-2 px-4 rounded"
+        class="mt-10 mb-10 bg-teal-600 hover:bg-teal-500 text-white font-bold py-2 px-4 rounded"
         @click="updateStudent"
       >
         Update
@@ -54,10 +57,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import AdviserService from '@/services/AdviserService'
 import AdviserItem from '@/types'
 import ResponseData from '@/types/ResponseData'
-import AdviserService from '@/services/AdviserService'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'student',

@@ -54,36 +54,36 @@ function updateKeyword(value: string) {
 
 <template>
   <div>
-    <div class="w-64 ml-10 mt-10 font-mono">
+    <div class="w-100 ml-1 mr-1 mt-10 font-mono p-10">
       <BaseInput
         v-model="keyword"
         placeholder="Search..."
         @input="updateKeyword"
-        class="w-full p-2 border"
+        class="w-full p-2 border text-black rounded"
       />
     </div>
-    <div class="grid grid-cols-2 gap-2 mb-4 mt-10">
+    <div class="grid grid-cols-1 gap-2 mt-10">
       <StudentCard v-for="student in students" :key="student.studentID" :student="student">
       </StudentCard>
     </div>
-    <div class="flex justify-around space-x-28">
+    <div class="mt-10 mb-10 flex justify-around space-x-28">
       <RouterLink
         :to="{ name: 'students', query: { page: page - 1 } }"
         rel="prev"
         v-if="page != 1"
         id="page-prev"
-        class="font-bold hover:text-red-800"
+        class="inline-block py-2 px-4 bg-gray-800 text-white font-semibold rounded-md hover:bg-white hover:text-black transition-colors duration-300 text-xl"
       >
-        Prev page
+        Back
       </RouterLink>
       <RouterLink
         :to="{ name: 'students', query: { page: page + 1 } }"
         rel="next"
         v-if="hasNextPages"
         id="page-next"
-        class="font-bold hover:text-green-600"
+        class="inline-block py-2 px-4 bg-gray-800 text-white font-semibold rounded-md hover:bg-white hover:text-black transition-colors duration-300 text-xl"
       >
-        Next page
+        Next
       </RouterLink>
     </div>
   </div>

@@ -21,18 +21,18 @@ function addDetail() {
 </script>
 
 <template>
-  <div v-if="student" class="font-mono grid grid-cols-2">
+  <div v-if="student" class="font-mono grid grid-cols-2 text-white">
     <p class="font-semibold text-left">Name-SurName:</p>
-    <p class="text-center">{{ student.name }} {{ student.surname }}</p>
+    <p class="text-justify">{{ student.name }} {{ student.surname }}</p>
     <p class="font-semibold text-left">Department:</p>
-    <p class="text-center">{{ student.department }}</p>
+    <p class="text-justify">{{ student.department }}</p>
   </div>
   <div v-if="message" class="font-mono">
     <h1 class="font-semibold text-left">Comment from Advisor:</h1>
     <p class="text-center">" {{ message }} "</p>
   </div>
   <div v-if="detail && detail.length">
-    <h1 class="text-center font-mono font-semibold">Student Detail</h1>
+    <h1 class="text-center font-mono font-semibold text-white">Student Detail</h1>
     <p v-for="(details, index) in detail" :key="index" class="text-center">" {{ details }} "</p>
   </div>
   <div class="text-center font-mono">
@@ -40,10 +40,13 @@ function addDetail() {
       type="text"
       v-model="newDetail"
       placeholder="Add Student Detail.."
-      class="border-2 border-black h-16 w-80 p-2 break-words mt-4 text-center"
+      class="h-10 w-80 p-2 break-words mt-4 rounded-lg text-black"
     />
     <div>
-      <button @click="addDetail" class="my-2 hover:text-red-800 font-extrabold underline">
+      <button
+        @click="addDetail"
+        class="mb-10 mt-10 bg-teal-600 text-white hover:bg-teal-500 font-bold py-2 px-4 rounded"
+      >
         Add Detail
       </button>
     </div>
