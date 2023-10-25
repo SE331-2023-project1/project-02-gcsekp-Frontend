@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AdviserService from '@/services/AdviserService'
+import TeacherService from '@/services/TeacherService'
 import { useMessageStore } from '@/stores/message'
 import type { AdviserItem } from '@/type'
 import { storeToRefs } from 'pinia'
@@ -13,7 +13,7 @@ const props = defineProps({
   }
 })
 
-AdviserService.getAdviserById(Number(props.id))
+TeacherService.getAdviserById(Number(props.id))
   .then((response) => {
     professer.value = response.data
   })

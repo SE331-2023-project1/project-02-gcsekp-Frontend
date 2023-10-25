@@ -1,20 +1,19 @@
 import StudentService from '@/services/StudentService'
 import { useStudentStore } from '@/stores/student'
-import AddAdviserView from '@/views/AddAdviserView.vue'
-import AdviserProfile from '@/views/AdviserProfile.vue'
-import AdviserView from '@/views/AdviserView.vue'
+import AddTeacherView from '@/views/AddTeacherView.vue'
 import NetworkErrorView from '@/views/NetworkErrorView.vue'
 import NotFoundView from '@/views/NotFoundView.vue'
 import StudentView from '@/views/StudentView.vue'
-import AdviserDetail from '@/views/event/AdviserDetail.vue'
+import TeacherDetail from '@/views/TeacherDetail.vue'
+import TeacherProfile from '@/views/TeacherProfile.vue'
+import TeacherView from '@/views/TeacherView.vue'
 import LayoutView from '@/views/event/LayoutView.vue'
 import StudentDetail from '@/views/event/StudentDetail.vue'
 import UpdateStudent from '@/views/event/updateStudent.vue'
-import UpdateAdviserView from '@/views/updateAdvisor.vue'
 import NProgress from 'nprogress'
-import Login from '../views/Login.vue'
-import Register from '../views/Register.vue'
 import { createRouter, createWebHistory } from 'vue-router'
+import LoginView from '../views/LoginView.vue'
+import RegisterView from '../views/RegisterView.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -29,30 +28,25 @@ const router = createRouter({
     {
       path: '/advisors',
       name: 'professer',
-      component: AdviserView,
+      component: TeacherView,
       props: (route) => ({
         page: parseInt((route.query?.page as string) || '1')
       })
     },
     {
-      path: '/advisors/:id',
-      name: 'update-advisor',
-      component: UpdateAdviserView
-    },
-    {
       path: '/Login',
       name: 'Login',
-      component: Login
+      component: LoginView
     },
     {
       path: '/Register',
       name: 'Register',
-      component: Register
+      component: RegisterView
     },
     {
       path: '/AddView',
       name: 'AddView',
-      component: AddAdviserView
+      component: AddTeacherView
     },
     {
       path: '/student/:id',
@@ -91,7 +85,7 @@ const router = createRouter({
         {
           path: '/student/adviser/:id',
           name: 'adviser-detail',
-          component: AdviserDetail,
+          component: TeacherDetail,
           props: true
         },
         {
@@ -121,7 +115,7 @@ const router = createRouter({
     {
       path: '/professer/profile/:id',
       name: 'professer-profile',
-      component: AdviserProfile,
+      component: TeacherProfile,
       props: true
     }
   ]

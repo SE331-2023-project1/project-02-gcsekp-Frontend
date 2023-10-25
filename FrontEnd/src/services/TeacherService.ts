@@ -15,7 +15,7 @@ export default {
   getAdviserBy(): Promise<AxiosResponse<AdviserItem[]>> {
     return apiClient.get<AdviserItem[]>('/advisors')
   },
-  updateAdvisorById(id: any, adviser: any): Promise<AxiosResponse<AdviserItem>> {
+  updateTeacherById(id: any, adviser: any): Promise<AxiosResponse<AdviserItem>> {
     return apiClient.put<AdviserItem>('/advisors/' + id.toString(), adviser)
   },
   getAdvisorByKeyword(

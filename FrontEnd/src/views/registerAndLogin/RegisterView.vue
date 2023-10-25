@@ -133,7 +133,7 @@
       <p class="mt-10 text-center text-sm text-white">
         Already have an account?
         {{ ' ' }}
-        <RouterLink to="/Login" class="font-semibold leading-6 text-gray-800 hover:text-white"
+        <RouterLink to="/LoginView" class="font-semibold leading-6 text-gray-800 hover:text-white"
           >Log in</RouterLink
         >
       </p>
@@ -194,7 +194,7 @@ export default {
       } else {
         this.sendPost() // Call the sendPost function to send registration data to the API
         alert('Registration successful. You can now log in.')
-        this.$router.push('/Login')
+        this.$router.push('/LoginView')
       }
     }
   }

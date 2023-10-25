@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import AdvisorCard from '@/components/AdvisorCard.vue'
-import { ref, onMounted } from 'vue'
 import AdvisorService from '@/services/AdvisorService'
 import type { AdvisorDetail } from '@/type'
-import { useRouter, useRoute } from 'vue-router'
+import { ref } from 'vue'
+import { useRoute } from 'vue-router'
 
 const advisorId = useRoute().params.advisorId
 const advisor = ref<AdvisorDetail | null>(null)

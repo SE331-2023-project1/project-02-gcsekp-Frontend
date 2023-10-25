@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import UploadImage from '@/components/UploadImage.vue'
-import AdviserService from '@/services/AdviserService'
+import TeacherService from '@/services/TeacherService'
 import { useMessageStore } from '@/stores/message'
 import type { AdviserItem } from '@/type'
 import { storeToRefs } from 'pinia'
@@ -30,7 +30,7 @@ const adviser = ref<AdviserItem>({
 })
 
 function saveAdviser() {
-  AdviserService.saveAdviser(adviser.value).then((res) => {
+  TeacherService.saveAdviser(adviser.value).then((res) => {
     console.log(res.data)
     router
       .push({

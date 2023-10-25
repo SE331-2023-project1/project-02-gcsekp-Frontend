@@ -33,7 +33,7 @@ import { RouterLink, RouterView } from 'vue-router'
       <!-- Right-side Login link -->
       <div>
         <RouterLink
-          to="/Login"
+          to="/LoginView"
           class="font-black text-lg ml-auto px-10"
           active-class="active-link"
           exact-active-class="active-link"

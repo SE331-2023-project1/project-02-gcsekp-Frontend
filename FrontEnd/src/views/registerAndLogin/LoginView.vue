@@ -61,7 +61,7 @@
       <p class="mt-10 text-center text-sm text-white">
         Don't have an account?
         {{ ' ' }}
-        <RouterLink to="/Register" class="font-semibold leading-6 text-black hover:text-white"
+        <RouterLink to="/RegisterView" class="font-semibold leading-6 text-black hover:text-white"
           >Register</RouterLink
         >
       </p>

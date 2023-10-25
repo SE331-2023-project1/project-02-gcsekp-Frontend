@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import AdviserList from '@/components/AdviserList.vue'
 import BaseInput from '@/components/BaseInput.vue'
+import TeacherList from '@/components/TeacherList.vue'
 import router from '@/router'
-import AdviserService from '@/services/AdviserService'
+import TeacherService from '@/services/TeacherService'
 import { useAdviserStore } from '@/stores/newAdviser'
 import type { AdviserItem } from '@/type'
 import type { AxiosResponse } from 'axios'
@@ -20,7 +20,7 @@ const props = defineProps({
   }
 })
 watchEffect(() => {
-  AdviserService.getAdvisers(eventsPerPage.value, props.page).then(
+  TeacherService.getAdvisers(eventsPerPage.value, props.page).then(
     (response: AxiosResponse<AdviserItem[]>) => {
       professer.value = response.data
       professer.value = [...adviserStore.getTemporaryAdviser(), ...professer.value]
@@ -38,9 +38,9 @@ const keyword = ref('')
 function updateKeyword(value: string) {
   let queryFunction
   if (keyword.value === '') {
-    queryFunction = AdviserService.getAdvisers(6, 1)
+    queryFunction = TeacherService.getAdvisers(6, 1)
   } else {
-    queryFunction = AdviserService.getAdvisorByKeyword(keyword.value, 6, 1)
+    queryFunction = TeacherService.getAdvisorByKeyword(keyword.value, 6, 1)
   }
   queryFunction
     .then((response: AxiosResponse<AdviserItem[]>) => {
@@ -66,8 +66,8 @@ function updateKeyword(value: string) {
       />
     </div>
     <div class="grid grid-cols-1 gap-2 mt-10">
-      <AdviserList v-for="professers in professer" :key="professers.id" :professer="professers">
-      </AdviserList>
+      <TeacherList v-for="professers in professer" :key="professers.id" :professer="professers">
+      </TeacherList>
     </div>
     <div class="mt-10 mb-10 flex justify-around space-x-30">
       <RouterLink

@@ -57,7 +57,7 @@
 </template>
 
 <script lang="ts">
-import AdviserService from '@/services/AdviserService'
+import TeacherService from '@/services/TeacherService'
 import AdviserItem from '@/types'
 import ResponseData from '@/types/ResponseData'
 import { defineComponent } from 'vue'
@@ -72,7 +72,7 @@ export default defineComponent({
   },
   methods: {
     getStudet(id: any) {
-      AdviserService.getAdviserById(id)
+      TeacherService.getAdviserById(id)
         .then((response: ResponseData) => {
           this.currentAdviser = response.data
           console.log(response.data)
@@ -90,7 +90,7 @@ export default defineComponent({
         department: this.currentAdviser.department,
         position: this.currentAdviser.position
       }
-      AdviserService.updateAdvisorById(this.currentAdviser.id, data)
+      TeacherService.updateTeacherById(this.currentAdviser.id, data)
         .then((response: ResponseData) => {
           console.log(response.data)
           this.message = 'The Adviser Information was updated successfully!'
